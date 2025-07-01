@@ -1,8 +1,8 @@
 services:
-  web-app-php:
+  ad-final-project:
     build:
       context: .
-    container_name: web-app-php-service
+    container_name: ad-final-project-service
     ports:
       - "8000:8000"
     develop:
@@ -19,31 +19,31 @@ services:
 
   mongodb:
     image: mongo:latest
-    container_name: web-app-php-mongodb
+    container_name: ad-final-project-mongodb
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootPassword
-      MONGO_INITDB_DATABASE: mydatabase
+      MONGO_INITDB_DATABASE: bmarketdb
     ports:
-      - "27111:27017"
+      - "23568:27017"
     volumes:
-      - web-app-php-mongodb:/data/db/mongodb
+      - ad-final-project-mongodb:/data/db/mongodb
 
   postgresql:
     image: postgres:15
-    container_name: web-app-php-postgresql
+    container_name: ad-final-project-postgresql
     restart: always
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
+      POSTGRES_DB: bmarketdb
     ports:
-      - "5112:5432"
+      - "5557:5432"
     volumes:
-      - web-app-php-postgresql:/data/db/postgresql
+      - ad-final-project-postgresql:/data/db/postgresql
 
 volumes:
-  web-app-php-mongodb:
+  ad-final-project-mongodb:
     driver: local
-  web-app-php-postgresql:
+  ad-final-project-postgresql:
     driver: local
