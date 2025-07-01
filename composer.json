@@ -1,0 +1,26 @@
+{
+    "name": "a-manalo/ad-final-project",
+    "type": "project",
+    "authors": [
+        {
+            "name": "a-manalo",
+            "email": "agmnlo.by@gmail.com"
+        },
+        {
+            "name": "miy00-chi",
+            "email": "hazelmito2029@gmail.com"
+        },
+        {
+            "name": "RiaVenice",
+            "email": "riatcruz.v1@gmail.com"
+        },
+        {
+            "name": "thirdworld3",
+            "email": "browicked@gmail.com"
+        }
+    ],
+    "scripts": {
+        "start": "php -S localhost:8000 router.php"
+    },
+    "require": {}
+}
