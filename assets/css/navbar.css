@@ -82,3 +82,13 @@
   color: var(--platinum);
   font-family: "Enriqueta", serif;
 }
+
+.login-btn {
+  background-color: var(--saffron);
+  padding: 8px 16px;
+  border-radius: 100px;
+}
+
+.login-btn a {
+  color: var(--eerie-black);
+}
