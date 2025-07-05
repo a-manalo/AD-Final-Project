@@ -12,3 +12,9 @@
   flex-direction: column;
   margin-right: auto;
 }
+
+.website-name {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--);
+}
