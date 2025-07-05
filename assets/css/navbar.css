@@ -54,10 +54,12 @@
   font-size: 1.5em;
   font-weight: bold;
   color: var(--saffron);
+  font-family: "Enriqueta", serif;
 }
 
 .company-name {
   font-size: 0.9em;
   color: var(--platinum);
   margin-top: 2px;
+  font-family: "Enriqueta", serif;
 }
