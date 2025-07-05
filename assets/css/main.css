@@ -14,7 +14,7 @@
   --jet: #333533ff;
 }
 
-.hero-section {
+.background {
   position: relative;
   background-image: url("assets/img/Background.jpg");
   background-size: cover;
@@ -26,7 +26,7 @@
   justify-content: center;
 }
 
-.hero-section::before {
+.background::before {
   content: "";
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-.hero-content {
+.background {
   position: relative;
   z-index: 2;
   text-align: center;
