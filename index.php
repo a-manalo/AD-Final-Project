@@ -8,5 +8,11 @@
 </head>
 <body>
     <!--Testing-->
+    <div class="background">
+        <div class="content">
+            <h1>Welcome to our site</h1>
+            <p>This text appears yada</p>
+        </div>
+    </div>
 </body>
 </html>
