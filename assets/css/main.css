@@ -28,6 +28,5 @@ body {
 
 .navbar .container {
   display: flex;
-  margin: 20;
-  padding: 2;
+  padding: 2%;
 }
