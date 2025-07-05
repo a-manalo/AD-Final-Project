@@ -24,11 +24,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .navbar .container {
   display: flex;
+  margin: 0;
+  padding: 0;
 }
