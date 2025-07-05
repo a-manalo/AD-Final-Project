@@ -25,12 +25,3 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
 }
-
-.navbar .container {
-  display: flex;
-  padding: 2% 8%;
-}
-
-.navbar .container .logo img {
-  width: 90px;
-}
