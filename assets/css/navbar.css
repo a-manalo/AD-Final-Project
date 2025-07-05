@@ -1,0 +1,8 @@
+.navbar .container {
+  display: flex;
+  padding: 2% 8%;
+}
+
+.navbar .container .logo img {
+  width: 90px;
+}
