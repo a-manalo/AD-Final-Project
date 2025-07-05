@@ -1,7 +1,25 @@
 /*Header Font*/
-.metamorphous-regular {
-  font-family: "Metamorphous", serif;
+.enriqueta-regular {
+  font-family: "Enriqueta", serif;
   font-weight: 400;
+  font-style: normal;
+}
+
+.enriqueta-medium {
+  font-family: "Enriqueta", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.enriqueta-semibold {
+  font-family: "Enriqueta", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.enriqueta-bold {
+  font-family: "Enriqueta", serif;
+  font-weight: 700;
   font-style: normal;
 }
 
