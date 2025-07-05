@@ -14,7 +14,7 @@
   --jet: #333533ff;
 }
 
-.background {
+body {
   position: relative;
   background-image: url("/assets/img/Background.jpg");
   background-size: cover;
