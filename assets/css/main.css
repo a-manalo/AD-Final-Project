@@ -28,3 +28,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.navbar .container {
+  display: flex;
+}
