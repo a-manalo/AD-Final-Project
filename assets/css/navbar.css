@@ -1,3 +1,10 @@
+/*Header Font*/
+.metamorphous-regular {
+  font-family: "Metamorphous", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
   /* CSS HEX */
   --platinum: #cfdbd5ff;
