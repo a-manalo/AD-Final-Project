@@ -2,9 +2,9 @@
     <div class="container">
         <a href="/" class="logo">
             <img src="/assets/img/Website-Logo.png" alt="">
-            <a href="/">The Forbidden Codex</a>
-            <p>Cottonee Inc.</p>
         </a>
+        <a href="/" class = "website-name">The Forbidden Codex</a>
+        <p class = "company-name">Cottonee Inc.</p>
 
         <ul class="navbar-menu">
             <li><a href="/">Home</a></li>
