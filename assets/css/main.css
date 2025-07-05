@@ -14,10 +14,6 @@
   --jet: #333533ff;
 }
 
-body {
-  background-color: var(--eerie-black);
-}
-
 .hero-section {
   position: relative;
   background-image: url("hero-background.jpg");
