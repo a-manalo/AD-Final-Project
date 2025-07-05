@@ -7,8 +7,5 @@
     <title>The Hydra Network</title>
 </head>
 <body>
-    <header>
-        <img src="assets\img\Website Logo.png">
-    </header>
 </body>
 </html>
