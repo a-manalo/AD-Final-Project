@@ -68,3 +68,7 @@
 .brand-text a {
   text-decoration: none;
 }
+
+.navbar-menu {
+  display: flex;
+}
