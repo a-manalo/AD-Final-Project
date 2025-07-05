@@ -4,7 +4,7 @@
             <img src="/assets/img/Website-Logo.png" alt="">
             <ul class="logo-title">
                 <li><a href="/">The Forbidden Codex</a></li>
-                <li><a href="/">Cottonee Inc.</a></li>
+                <li><p>Cottonee Inc.</p>/li>
             </ul>
         </a>
 
