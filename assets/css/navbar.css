@@ -6,3 +6,9 @@
 .navbar .container .logo img {
   width: 90px;
 }
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  margin-right: auto;
+}
