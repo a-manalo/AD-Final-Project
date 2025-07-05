@@ -28,3 +28,9 @@
   font-weight: bold;
   color: var(--saffron);
 }
+
+.company-name {
+  font-size: 0.9em;
+  color: var(--platinum);
+  margin-top: 2px;
+}
