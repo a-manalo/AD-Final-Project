@@ -13,3 +13,7 @@
   --eerie-black: #242423ff;
   --jet: #333533ff;
 }
+
+body {
+  background-color: var(--eerie-black);
+}
