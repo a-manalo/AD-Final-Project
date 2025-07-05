@@ -64,3 +64,7 @@
   margin-top: 2px;
   font-family: "Enriqueta", serif;
 }
+
+.brand-text a {
+  text-decoration: none;
+}
