@@ -28,5 +28,9 @@ body {
 
 .navbar .container {
   display: flex;
-  padding: 2%;
+  padding: 2% 5%;
+}
+
+.navbar .container .logo img {
+  width: 40px;
 }
