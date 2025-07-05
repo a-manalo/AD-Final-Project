@@ -1,3 +1,12 @@
+:root {
+  /* CSS HEX */
+  --platinum: #cfdbd5ff;
+  --alabaster: #e8eddfff;
+  --saffron: #f5cb5cff;
+  --eerie-black: #242423ff;
+  --jet: #333533ff;
+}
+
 .navbar .container {
   display: flex;
   padding: 2% 8%;
