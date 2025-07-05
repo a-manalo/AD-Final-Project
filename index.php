@@ -7,5 +7,6 @@
     <title>The Hydra Network</title>
 </head>
 <body>
+    <?php include '/layouts/main.layout.php'?>
 </body>
 </html>
