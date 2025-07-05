@@ -2,10 +2,8 @@
     <div class="container">
         <a href="/" class="logo">
             <img src="/assets/img/Website-Logo.png" alt="">
-            <ul class="logo-title">
-                <li><a href="/">The Forbidden Codex</a></li>
-                <li><p>Cottonee Inc.</p></li>
-            </ul>
+            <a href="/">The Forbidden Codex</a>
+            <p>Cottonee Inc.</p>
         </a>
 
         <ul class="navbar-menu">
