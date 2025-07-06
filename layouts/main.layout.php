@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/navbar.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
 </head>
 <body>
     <?php 
