@@ -37,6 +37,7 @@
 .navbar .container {
   display: flex;
   padding: 2% 8%;
+  align-items: center;
 }
 
 .navbar .container .logo img {
