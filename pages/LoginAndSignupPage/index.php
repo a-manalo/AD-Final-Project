@@ -11,7 +11,7 @@
     <div class="page">
   <div class="container">
     <div class="left">
-        <img src="/assets/img/Website-Logo.png" alt="">
+        <img src="/assets/img/Other-Website-Logo.png" alt="">
       <div class="login">The Forbidden Codex</div>
       <div class="eula">By logging in you agree to the expose yourself to fictional crimes.</div>
     </div>
