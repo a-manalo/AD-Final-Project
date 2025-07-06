@@ -107,7 +107,7 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0.5;
-  background: var(--saffron);
+  background: var(--jet);
 }
 .cover .text .text-1,
 .cover .text .text-2 {
