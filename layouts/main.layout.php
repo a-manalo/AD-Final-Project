@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="stylesheet" href="/assets/css/navbar.css">
     <link rel="stylesheet" href="/assets/css/footer.css">
+    <script src = "/assets/js/footer.js"></script>
 </head>
 <body>
     <?php 
@@ -15,5 +16,6 @@
     include 'components/templates/footer.component.php';
     
     ?>
+
 </body>
 </html>
