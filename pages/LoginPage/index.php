@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Login / Sign Up</title>
     <link rel="stylesheet" href="/pages/LoginPage/assets/css/login.css">
+    <script src="/pages/LoginPage/assets/js/login.js"></script>
 </head>
 <body>
     <div class="blur-bg-overlay"></div>
