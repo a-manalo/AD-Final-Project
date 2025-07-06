@@ -103,7 +103,7 @@
   font-family: "Enriqueta", serif;
 }
 
-.login-btn a::after {
+.login-btn a:hover {
   background-color: var(--platinum);
   color: var(--saffron);
 }
