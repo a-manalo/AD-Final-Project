@@ -15,41 +15,55 @@ include 'layouts/main.layout.php';
 
 </head>
 <body>
-    <!--Hero Section-->
-    <section class="hero-section">
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
-            </div>
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/assets/img/hero.png" class="d-block w-100" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img src="/assets/img/Background.jpg" class="d-block w-100" alt="Second slide">
-                </div>
-                <div class="carousel-item">
-                    <img src="/assets/img/hero.png" class="d-block w-100" alt="Third slide">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+    <!-- Hero Section -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
         </div>
-    </section>
-
-    <ul class="register-container">
-        <li><a href="/pages">[ Log In ]</a></li>
-        <li><a href="/pages">[ Register ]</a></li>
-    </ul>
-
+        <!-- Slides -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active position-relative text-center">
+                <img src="/assets/img/hero-no-text.png" class="d-block w-100" alt="First slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Welcome to The Forbidden Codex</h5>
+                    <p>Unveil hidden knowledge and mysteries.</p>
+                    <a href="/pages" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item text-center">
+                <img src="/assets/img/hero-no-text.png" class="d-block w-100" alt="Second slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Explore the Archives</h5>
+                    <p>Discover forgotten truths.</p>
+                    <a href="/pages" class="btn btn-warning">Browse Archives</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item text-center">
+                <img src="/assets/img/hero-no-text.png" class="d-block w-100" alt="Third slide">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Join Our Guild</h5>
+                    <p>Be part of the legacy.</p>
+                    <a href="/pages" class="btn btn-success">Register Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</body>
 
 </body>
 </html>
