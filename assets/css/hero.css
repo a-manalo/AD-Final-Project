@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Enriqueta", serif;
+}
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.register-container {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: 5% auto; /* Alternative horizontal centering */
+}
