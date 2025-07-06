@@ -77,6 +77,8 @@
 
 .navbar-menu .navbar-links {
   display: flex;
+  list-style: none;
+  gap: 30px;
 }
 
 .navbar-menu a {
