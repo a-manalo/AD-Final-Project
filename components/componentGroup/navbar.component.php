@@ -8,11 +8,13 @@
             <p class = "company-name">Cottonee Inc.</p>
         </div>
 
-        <ul class="navbar-menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/">Products</a></li>
-            <li><a href="/">Services</a></li>
+        <div class="navbar-menu">
+            <ul class="navbar-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Products</a></li>
+                <li><a href="/">Services</a></li>
+            </ul>
             <li><a href="/" class = "login-btn">Login</a></li>
-        </ul>
+        </div>
     </div>
 </nav>
