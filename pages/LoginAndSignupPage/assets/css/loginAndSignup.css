@@ -1,6 +1,6 @@
 /*@import url("https://rsms.me/inter/inter-ui.css");*/
 @import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Atkinson+Hyperlegible+Mono:ital@0;1&family=Borel&family=Bubblegum+Sans&family=Bubbler+One&family=Cherry+Bomb+One&family=Crafty+Girls&family=Enriqueta:wght@400;500;600;700&family=Fuzzy+Bubbles:wght@400;700&family=Gochi+Hand&family=Hachi+Maru+Pop&family=Metamorphous&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&family=Poppins&family=Rubik+Puddles&family=Share+Tech+Mono&family=Sono:wght@200..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
-::selection {
+/*::selection {
   background: #2d2f36;
 }
 ::-webkit-selection {
@@ -14,9 +14,19 @@ body {
   font-family: "Inter UI", sans-serif;
   margin: 0;
   padding: 20px;
+}*/
+
+:root {
+  /* CSS HEX */
+  --platinum: #cfdbd5ff;
+  --alabaster: #e8eddfff;
+  --saffron: #f5cb5cff;
+  --eerie-black: #242423ff;
+  --jet: #333533ff;
 }
+
 .page {
-  background: #e2e2e5;
+  /*background: #e2e2e5;*/
   display: flex;
   flex-direction: column;
   height: calc(100% - 40px);
@@ -45,7 +55,7 @@ body {
   }
 }
 .left {
-  background: white;
+  background: var(--saffron);
   height: calc(100% - 40px);
   top: 20px;
   position: relative;
@@ -61,22 +71,28 @@ body {
 }
 .login {
   font-size: 50px;
-  font-weight: 900;
   margin: 50px 40px 40px;
+  font-weight: bold;
+  color: var(--jet);
+  font-family: "Enriqueta", serif;
 }
 .eula {
-  color: #999;
+  color: var(--jet);
   font-size: 14px;
   line-height: 1.5;
   margin: 40px;
+  font-family: "Enriqueta", serif;
 }
 .right {
-  background: #474a59;
-  box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.22);
+  background: var(--eerie-black);
+  box-shadow: 0px 0px 40px 16px rgba(0, 0, 0, 0.15);
   color: #f1f1f2;
   position: relative;
   width: 50%;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
+
 @media (max-width: 767px) {
   .right {
     flex-shrink: 0;
@@ -100,22 +116,25 @@ path {
   position: absolute;
 }
 label {
-  color: #c2c2c5;
   display: block;
   font-size: 14px;
   height: 16px;
   margin-top: 20px;
   margin-bottom: 5px;
+  color: var(--platinum);
+  font-family: "Enriqueta", serif;
 }
 input {
   background: transparent;
   border: 0;
-  color: #f2f2f2;
   font-size: 20px;
   height: 30px;
   line-height: 30px;
   outline: none !important;
   width: 100%;
+  font-weight: bold;
+  color: var(--platinum);
+  font-family: "Enriqueta", serif;
 }
 input::-moz-focus-inner {
   border: 0;
