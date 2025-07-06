@@ -1,0 +1,54 @@
+:root {
+  /* CSS HEX */
+  --platinum: #cfdbd5ff;
+  --alabaster: #e8eddfff;
+  --saffron: #f5cb5cff;
+  --eerie-black: #242423ff;
+  --jet: #333533ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Enriqueta", serif;
+}
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.register-container {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: 1% auto;
+  list-style: none;
+  padding: 3%;
+}
+
+.register-container li a {
+  background-color: var(--saffron);
+  padding: 8px 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--eerie-black);
+  font-family: "Enriqueta", serif;
+}
+
+.register-container li a:hover {
+  background-color: var(--platinum);
+}
+
+.register-container li a:hover {
+  color: var(--eerie-black);
+}
