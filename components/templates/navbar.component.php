@@ -14,7 +14,7 @@
                 <li><a href="/">Products</a></li>
                 <li><a href="/">Services</a></li>
             </ul>
-            <a href="/" class = "login-btn">Login</a>
+            <a href="/pages/LoginAndSignupPage/index.php" class = "login-btn">Login</a>
         </div>
     </div>
 </nav>
