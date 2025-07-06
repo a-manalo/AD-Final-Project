@@ -8,6 +8,6 @@
     <link rel="stylesheet" href="/assets/css/navbar.css">
 </head>
 <body>
-    <?php include 'components/componentGroup/navbar.component.php'?>
+    <?php include 'components/templates/navbar.component.php'?>
 </body>
 </html>
