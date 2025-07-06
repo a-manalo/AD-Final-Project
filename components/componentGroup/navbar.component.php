@@ -14,7 +14,7 @@
                 <li><a href="/">Products</a></li>
                 <li><a href="/">Services</a></li>
             </ul>
-            <li><a href="/" class = "login-btn">Login</a></li>
+            <a href="/" class = "login-btn">Login</a>
         </div>
     </div>
 </nav>
