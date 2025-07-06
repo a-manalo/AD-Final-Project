@@ -3,14 +3,8 @@
             <div class="footer-main">
                 <!-- Company Info -->
                 <div class="footer-section">
-                    <h3>About ShopMart</h3>
-                    <p>Your trusted online shopping destination. We offer quality products at competitive prices with fast, reliable delivery worldwide.</p>
-                    <div class="social-links">
-                        <a href="#" title="Facebook">f</a>
-                        <a href="#" title="Twitter">t</a>
-                        <a href="#" title="Instagram">i</a>
-                        <a href="#" title="LinkedIn">in</a>
-                    </div>
+                    <h3>About The Forbidden Codex</h3>
+                    <p>The only shop that will offer you forbidden items. Trust that your secrets are kept safe.</p>
                 </div>
 
                 <!-- Customer Service -->
@@ -31,34 +25,12 @@
                 <div class="footer-section">
                     <h3>Shopping</h3>
                     <ul>
-                        <li><a href="#">New Arrivals</a></li>
-                        <li><a href="#">Best Sellers</a></li>
-                        <li><a href="#">Sale Items</a></li>
-                        <li><a href="#">Gift Cards</a></li>
-                        <li><a href="#">Wishlist</a></li>
-                        <li><a href="#">Product Categories</a></li>
-                        <li><a href="#">Brand Directory</a></li>
+                        <li><a href="#">Potent Drugs</a></li>
+                        <li><a href="#">Weapons</a></li>
+                        <li><a href="#">Artifacts</a></li>
+                        <li><a href="#">Rituals</a></li>
                     </ul>
                 </div>
-
-                <!-- Newsletter & Contact -->
-                <div class="footer-section">
-                    <h3>Stay Connected</h3>
-                    <p>Subscribe to our newsletter for exclusive deals and updates!</p>
-                    <div class="newsletter">
-                        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
-                            <input type="email" placeholder="Enter your email" required>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
-                    
-                    <div class="contact-info">
-                        <p><strong>Customer Service:</strong> 1-800-SHOPMART</p>
-                        <p><strong>Email:</strong> support@shopmart.com</p>
-                        <p><strong>Hours:</strong> Mon-Fri 9AM-6PM EST</p>
-                    </div>
-                </div>
-            </div>
 
             <!-- Payment Methods -->
             <div class="footer-section">
@@ -74,7 +46,7 @@
 
             <!-- Footer Bottom -->
             <div class="footer-bottom">
-                <p>&copy; 2025 ShopMart. All rights reserved.</p>
+                <p>&copy; 2025 ShopMart. All rights reserved. | This website if for educational purposes only.</p>
                 <div class="footer-bottom-links">
                     <a href="#">Privacy Policy</a>
                     <a href="#">Terms of Service</a>
