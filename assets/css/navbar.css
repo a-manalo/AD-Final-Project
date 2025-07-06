@@ -107,6 +107,6 @@
   background-color: var(--platinum);
 }
 
-.login-btn:hover a {
+.navbar-links li a:hover {
   color: var(--saffron);
 }
