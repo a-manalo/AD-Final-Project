@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login / Sign Up</title>
-    <!-- Add your CSS and meta tags here -->
+    <link rel="stylesheet" href="/pages/LoginPage/assets/css/login.css">
 </head>
 <body>
 
