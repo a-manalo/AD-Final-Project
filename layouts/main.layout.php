@@ -13,7 +13,7 @@
     <?php 
     
     include 'components/templates/navbar.component.php';
-    include 'components/templates/footer.component.php';
+    #include 'components/templates/footer.component.php';
     
     ?>
 
