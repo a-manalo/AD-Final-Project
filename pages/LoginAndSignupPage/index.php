@@ -11,7 +11,7 @@
     <div class="page">
   <div class="container">
     <div class="left">
-      <div class="login">Login</div>
+      <div class="login">The Forbidden Codex</div>
       <div class="eula">By logging in you agree to the expose yourself to fictional crimes.</div>
     </div>
     <div class="right">
