@@ -19,8 +19,8 @@ include 'layouts/main.layout.php';
     </div>
 
     <ul class="register-container">
-        <li><a href="/pages">Log In</a></li>
-        <li><a href="/pages">Register</a></li>
+        <li><a href="/pages">[ Log In ]</a></li>
+        <li><a href="/pages">[ Register ]</a></li>
     </ul>
 
 </body>
