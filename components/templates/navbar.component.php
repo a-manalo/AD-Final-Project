@@ -11,7 +11,7 @@
         <div class="navbar-menu">
             <ul class="navbar-links">
                 <li><a href="/">Home</a></li>
-                <li><a href="/">Products</a></li>
+                <li><a href="/pages/ProductPage/index.php">Products</a></li>
                 <li><a href="/">Services</a></li>
             </ul>
             <a href="/" class = "login-btn">Account</a>
