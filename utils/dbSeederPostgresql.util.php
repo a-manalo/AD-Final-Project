@@ -6,8 +6,6 @@ require 'vendor/autoload.php';
 require 'bootstrap.php';
 require_once UTILS_PATH . '/envSetter.util.php';
 
-define('DUMMIES_PATH', 'staticData/dummies');
-
 $host     = $pgConfig['host'];
 $port     = $pgConfig['port'];
 $username = $pgConfig['user'];
@@ -26,11 +24,12 @@ switch ($table) {
         echo "Seeding users...\n";
         $data = require DUMMIES_PATH . '/users.staticData.php';
         $stmt = $pdo->prepare("
-            INSERT INTO users (username, password, email, role)
-            VALUES (:username, :password, :email, :role)
+            INSERT INTO users (id, username, password, email, role)
+            VALUES (:id, :username, :password, :email, :role)
         ");
         foreach ($data as $u) {
             $stmt->execute([
+                ':id'       => $u['id'],
                 ':username' => $u['username'],
                 ':password' => password_hash($u['password'], PASSWORD_DEFAULT),
                 ':email'    => $u['email'],
@@ -44,11 +43,12 @@ switch ($table) {
         echo "Seeding items...\n";
         $data = require DUMMIES_PATH . '/items.staticData.php';
         $stmt = $pdo->prepare("
-            INSERT INTO items (name, description, price, stock, category, image_url)
-            VALUES (:name, :description, :price, :stock, :category, :image_url)
+            INSERT INTO items (id, name, description, price, stock, category, image_url)
+            VALUES (:id, :name, :description, :price, :stock, :category, :image_url)
         ");
         foreach ($data as $i) {
             $stmt->execute([
+                ':id'          => $i['id'],
                 ':name'        => $i['name'],
                 ':description' => $i['description'],
                 ':price'       => $i['price'],
@@ -104,4 +104,4 @@ switch ($table) {
 
     default:
         echo "No seeder found for '{$table}'. Skipping.\n";
-} 
+}
