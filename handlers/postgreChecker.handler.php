@@ -1,7 +1,7 @@
 <?php
 
 $host = "host.docker.internal"; 
-$port = "5432";
+$port = "5557";
 $username = "user";
 $password = "password";
 $dbname = "bmarketdb";
