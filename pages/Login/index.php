@@ -26,7 +26,7 @@ session_start();
     <input type="checkbox" id="flip">
     <div class="cover">
     <div class="front">
-        <img src="/assets/img/Background.jpg" alt="Mystic Background">
+        <img src="/assets/img/background.jpg" alt="Mystic Background">
         <div class="text">
             <span class="text-1">Step into the realm of forgotten legends</span>
             <span class="text-2">Where myths trade in shadows</span>
