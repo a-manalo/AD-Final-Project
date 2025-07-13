@@ -89,4 +89,13 @@ return [
         'email' => 'ghostline@buyer.com',
         'role' => 'buyer',
     ],
+
+    //additional person no email and role provided:
+    [
+        'id' => 'c42f60ab-d5b7-4783-8ed2-9f63a1287c77',
+        'username' => 'voidcipher',
+        'password' => 'xeno9veil',
+        'email' => null,
+        'role' => null
+    ],
 ];
