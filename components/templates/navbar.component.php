@@ -1,3 +1,7 @@
+<div class="site-disclaimer">
+  ⚠️ <strong>Disclaimer:</strong> The market is but a vessel. The site holds no blame for dealings made in shadow.
+</div>
+
 <nav class="navbar">
     <div class="container">
         <a href="/" class="logo">
@@ -13,8 +17,8 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="/pages/ProductPage/index.php">Products</a></li>
                 <li><a href="/">Services</a></li>
+                <li><a href="/" class = "login-btn">Account</a></li>
             </ul>
-            <a href="/" class = "login-btn">Account</a>
         </div>
-    </div>
+
 </nav>
