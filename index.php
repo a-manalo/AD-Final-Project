@@ -27,16 +27,16 @@ include 'layouts/main.layout.php';
         <div class="carousel-inner">
             <!-- Slide 1 -->
             <div class="carousel-item active position-relative text-center">
-                <img src="/assets/img/hero-no-text.png" class="d-block w-100" alt="First slide">
+                <img src="/assets/img/hero_no_text.png" class="d-block w-100" alt="First slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Welcome to The Forbidden Codex</h5>
                     <p>Unveil hidden knowledge and mysteries.</p>
-                    <a href="/pages/Login-SignUpPage/index.php" class="btn btn-primary">Get Started</a>
+                    <a href="/pages/Login/index.php" class="btn btn-primary">Get Started</a>
                 </div>
             </div>
             <!-- Slide 2 -->
             <div class="carousel-item text-center">
-                <img src="/assets/img/hero-no-text.png" class="d-block w-100" alt="Second slide">
+                <img src="/assets/img/hero_no_text.png" class="d-block w-100" alt="Second slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Explore the Archives</h5>
                     <p>Discover forgotten truths.</p>
@@ -45,7 +45,7 @@ include 'layouts/main.layout.php';
             </div>
             <!-- Slide 3 -->
             <div class="carousel-item text-center">
-                <img src="/assets/img/hero-no-text.png" class="d-block w-100" alt="Third slide">
+                <img src="/assets/img/hero_no_text.png" class="d-block w-100" alt="Third slide">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Join Our Guild</h5>
                     <p>Be part of the legacy.</p>
