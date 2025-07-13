@@ -23,21 +23,44 @@ switch ($table) {
     case 'users':
         echo "Seeding users...\n";
         $data = require DUMMIES_PATH . '/users.staticData.php';
-        $stmt = $pdo->prepare("
-            INSERT INTO users (id, username, password, email, role)
-            VALUES (:id, :username, :password, :email, :role)
-        ");
+
         foreach ($data as $u) {
-            $stmt->execute([
-                ':id'       => $u['id'],
-                ':username' => $u['username'],
-                ':password' => password_hash($u['password'], PASSWORD_DEFAULT),
-                ':email'    => $u['email'],
-                ':role'     => $u['role'],
-            ]);
+        // Build dynamic insert query and param bindings
+        $columns = ['id', 'username', 'password'];
+        $placeholders = [':id', ':username', ':password'];
+        $params = [
+            ':id'       => $u['id'],
+            ':username' => $u['username'],
+            ':password' => password_hash($u['password'], PASSWORD_DEFAULT),
+        ];
+
+        // Optionally add email if provided
+        if (isset($u['email'])) {
+            $columns[] = 'email';
+            $placeholders[] = ':email';
+            $params[':email'] = $u['email'];
         }
-        echo "Users seeded.\n";
-        break;
+
+        // Optionally add role if provided
+        if (isset($u['role'])) {
+            $columns[] = 'role';
+            $placeholders[] = ':role';
+            $params[':role'] = $u['role'];
+        }
+
+        // Compose the dynamic query string
+        $query = sprintf(
+            "INSERT INTO users (%s) VALUES (%s)",
+            implode(', ', $columns),
+            implode(', ', $placeholders)
+        );
+
+    $stmt = $pdo->prepare($query);
+    $stmt->execute($params);
+}
+
+echo "Users seeded.\n";
+break;
 
     case 'items':
         echo "Seeding items...\n";
