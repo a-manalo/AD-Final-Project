@@ -18,10 +18,10 @@
         <li><a href="/pages/ProductPage/index.php">Products</a></li>
         <li><a href="/">Services</a></li>
 
-        <?php if (isset($_SESSION['user']) && ($_SESSION['user']['role'] ?? '') === 'user'): ?>
-          <li><a href="/pages/account/index.php" class="login-btn">Account</a></li>
+        <?php if (isset($_SESSION['user'])): ?>
+            <li><a href="/pages/" class = "login-btn">Account</a></li>
         <?php else: ?>
-          <li><a href="/pages/login/index.php" class="login-btn">Login</a></li>
+            <li><a href="/pages/Login/index.php">Login</a></li>
         <?php endif; ?>
       </ul>
     </div>
