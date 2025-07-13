@@ -45,7 +45,7 @@ body {
       rgba(36, 35, 35, 0.9),
       rgba(36, 35, 35, 0.8)
     ),
-    url("/assets/img/Background.jpg");
+    url("/assets/img/background.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

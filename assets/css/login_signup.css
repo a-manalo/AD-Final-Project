@@ -33,28 +33,32 @@
   --eerie-black: #242423ff;
   --jet: #333533ff;
 }
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Enriqueta", serif;
 }
+
 body {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 30px;
+  background: var(--eerie-black);
+  padding: 60px; /* increased from 30px */
 }
+
 .container {
   position: relative;
-  max-width: 850px;
+  max-width: 1000px; /* increased from 850px */
   width: 100%;
   background: #fff;
-  padding: 40px 30px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 60px 40px; /* increased padding */
   perspective: 2700px;
 }
+
 .container .cover {
   position: absolute;
   top: 0;
@@ -67,12 +71,15 @@ body {
   transform-style: preserve-3d;
   backface-visibility: hidden;
 }
+
 .container #flip:checked ~ .cover {
   transform: rotateY(-180deg);
 }
+
 .container #flip:checked ~ .forms .login-form {
   pointer-events: none;
 }
+
 .container .cover .front,
 .container .cover .back {
   position: absolute;
@@ -81,9 +88,11 @@ body {
   height: 100%;
   width: 100%;
 }
+
 .cover .back {
   transform: rotateY(180deg);
 }
+
 .container .cover img {
   position: absolute;
   height: 100%;
@@ -91,6 +100,7 @@ body {
   object-fit: cover;
   z-index: 10;
 }
+
 .container .cover .text {
   position: absolute;
   z-index: 10;
@@ -101,6 +111,7 @@ body {
   align-items: center;
   justify-content: center;
 }
+
 .container .cover .text::before {
   content: "";
   position: absolute;
@@ -109,38 +120,47 @@ body {
   opacity: 0.5;
   background: var(--jet);
 }
-.cover .text .text-1,
-.cover .text .text-2 {
+
+.cover .text .text-1 {
   z-index: 20;
-  font-size: 26px;
+  font-size: 32px; /* increased from 26px */
   font-weight: 600;
   color: #fff;
   text-align: center;
 }
+
 .cover .text .text-2 {
-  font-size: 15px;
+  z-index: 20;
+  font-size: 18px; /* increased from 15px */
   font-weight: 500;
+  color: #fff;
+  text-align: center;
 }
+
 .container .forms {
   height: 100%;
   width: 100%;
   background: #fff;
 }
+
 .container .form-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
+
 .form-content .login-form,
 .form-content .signup-form {
   width: calc(100% / 2 - 25px);
 }
+
 .forms .form-content .title {
   position: relative;
-  font-size: 24px;
+  font-size: 28px; /* increased from 24px */
   font-weight: 500;
   color: #333;
 }
+
 .forms .form-content .title:before {
   content: "";
   position: absolute;
@@ -150,81 +170,120 @@ body {
   width: 25px;
   background: var(--saffron);
 }
+
 .forms .signup-form .title:before {
   width: 20px;
 }
+
 .forms .form-content .input-boxes {
   margin-top: 30px;
 }
+
 .forms .form-content .input-box {
   display: flex;
   align-items: center;
-  height: 50px;
+  height: 60px; /* increased from 50px */
   width: 100%;
-  margin: 10px 0;
+  margin: 12px 0;
   position: relative;
 }
+
 .form-content .input-box input {
   height: 100%;
   width: 100%;
   outline: none;
   border: none;
-  padding: 0 30px;
-  font-size: 16px;
+  padding: 0 35px; /* increased from 30px */
+  font-size: 18px; /* increased from 16px */
   font-weight: 500;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }
+
 .form-content .input-box input:focus,
 .form-content .input-box input:valid {
   border-color: var(--saffron);
 }
+
 .form-content .input-box i {
   position: absolute;
   color: var(--saffron);
-  font-size: 17px;
+  font-size: 18px; /* increased from 17px */
 }
+
 .forms .form-content .text {
-  font-size: 14px;
+  font-size: 16px; /* increased from 14px */
   font-weight: 500;
   color: #333;
 }
+
 .forms .form-content .text a {
   text-decoration: none;
 }
+
 .forms .form-content .text a:hover {
   text-decoration: underline;
 }
+
 .forms .form-content .button {
   color: #fff;
   margin-top: 40px;
 }
+
 .forms .form-content .button input {
+  font-size: 18px;
   color: #fff;
   background: var(--saffron);
   border-radius: 6px;
-  padding: 0;
+  padding: 15px 0; /* more vertical padding */
   cursor: pointer;
   transition: all 0.4s ease;
 }
+
 .forms .form-content .button input:hover {
   background: var(--saffron);
 }
+
 .forms .form-content label {
   color: var(--saffron);
   cursor: pointer;
 }
+
 .forms .form-content label:hover {
   text-decoration: underline;
 }
+
 .forms .form-content .login-text,
 .forms .form-content .sign-up-text {
   text-align: center;
   margin-top: 25px;
 }
+
 .container #flip {
   display: none;
 }
+
+.logo-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo-img {
+  max-width: 100%;
+  height: auto;
+  width: 350px; /* You can adjust this value */
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 730px) {
+  .logo-img {
+    width: 250px;
+  }
+}
+
 @media (max-width: 730px) {
   .container .cover {
     display: none;
