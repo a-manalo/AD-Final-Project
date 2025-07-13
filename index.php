@@ -31,7 +31,7 @@ include 'layouts/main.layout.php';
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Welcome to The Forbidden Codex</h5>
                     <p>Unveil hidden knowledge and mysteries.</p>
-                    <a href="/pages/Login-SignUpPage/index.php" class="btn btn-primary">Get Started</a>
+                    <a href="/pages/Login/index.php" class="btn btn-primary">Get Started</a>
                 </div>
             </div>
             <!-- Slide 2 -->
