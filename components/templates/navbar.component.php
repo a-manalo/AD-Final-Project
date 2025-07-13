@@ -1,7 +1,7 @@
 <nav class="navbar">
     <div class="container">
         <a href="/" class="logo">
-            <img src="/assets/img/Website-Logo.png" alt="">
+            <img src="/assets/img/Website_Logo.png" alt="">
         </a>
         <div class="brand-text">
             <a href="/" class = "website-name">The Forbidden Codex</a>
