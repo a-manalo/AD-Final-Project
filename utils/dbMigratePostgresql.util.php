@@ -2,8 +2,8 @@
 // Set up requirements
 declare(strict_types=1);
 
+require 'bootstrap.php';
 require BASE_PATH . '/vendor/autoload.php';
-require BASE_PATH . '/bootstrap.php';
 require_once UTILS_PATH . '/envSetter.util.php';
 
 // Adding the database host and connecting
