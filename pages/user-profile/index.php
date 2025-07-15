@@ -1,44 +1,4 @@
-<?php
-// PHP Logic and Includes - START
-include LAYOUTS_PATH . "/main.layout.php";
-// The original dummy.staticData.php might contain other site-wide static data.
-// If your product data is separate, keep this include.
-include STATICDATAS_PATH . "/dummies/items.staticData.php"; 
-
-// ⚠️ TEMPORARY test only — remove this after confirming login works properly
-$_SESSION['user'] = [
-    'username' => 'shadowfox',
-    'joined' => '2025-01-01',
-    'preferred_comm' => 'Dead Drop',
-    'role' => 'seller' // change this to 'customer' or 'admin' to test others
-];
-$user = $_SESSION['user'];
-
-// Define role once
-$role = $_SESSION['user']['role'] ?? 'guest';
-
-// --- LOAD YOUR DUMMY PRODUCT DATA FROM EXTERNAL FILE ---
-// Ensure STATICDATAS_PATH is correctly defined and points to the directory
-// where you saved products.data.php.
-// If you put it in a different folder (e.g., 'data'), adjust the path accordingly:
-// require_once __DIR__ . '/data/products.data.php'; 
-$allProducts = include STATICDATAS_PATH . "/dummies/items.staticData.php";
-
-// Filter products based on the seller's role if needed, or assume all products
-// are potentially user products for a seller's listing page.
-// For this profile page, we assume 'seller' views all available products.
-$userProducts = [];
-if ($role === 'seller') {
-    // In a real application, you'd fetch products specifically owned by the logged-in seller.
-    // For dummy data, we'll just use a subset or all of them for display.
-    // Here, we're using all the products loaded from the external file.
-    $userProducts = $allProducts; 
-}
-// --- END OF EXTERNAL DUMMY DATA LOADING ---
-
-
-// PHP Logic and Includes - END
-?>
+<?php include LAYOUTS_PATH . "/main.layout.php"?>
 
 <link rel="stylesheet" href="/pages/user-profile/assets/css/user-profile.css">
 
@@ -64,7 +24,7 @@ if ($role === 'seller') {
 
             <div class="content-section" id="section-profile">
                 <div class="profile-details">
-                    <?php if (!empty($updateMessage)): // Assuming $updateMessage might be set elsewhere ?>
+                    <?php if (!empty($updateMessage)):?>
                         <p style="color: var(--saffron); font-weight: bold;"><?= $updateMessage ?></p>
                     <?php endif; ?>
 
@@ -147,26 +107,4 @@ if ($role === 'seller') {
     </div>
 </div>
 
-<script>
-    const sidebarItems = document.querySelectorAll('.sidebar-item');
-    const contentSections = document.querySelectorAll('.content-section');
-
-    sidebarItems.forEach(item => {
-        item.addEventListener('click', () => {
-            // Remove 'active' class from all sidebar items
-            sidebarItems.forEach(i => i.classList.remove('active'));
-            item.classList.add('active');
-
-            const sectionToShow = 'section-' + item.dataset.section;
-
-            // Hide all sections
-            contentSections.forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            // Show the selected section
-            const activeSection = document.getElementById(sectionToShow);
-            if (activeSection) activeSection.classList.remove('hidden');
-        });
-    });
-</script>
+<script src="/pages/user-profile/assets/js/user-profile.js"></script>
