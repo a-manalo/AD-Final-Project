@@ -8,7 +8,7 @@ return [
         'price' => 12000.00,
         'stock' => 20,
         'category' => 'Drugs',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Drugs/ambrosia_dust.png'
     ],
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000002',
@@ -17,7 +17,7 @@ return [
         'price' => 9500.00,
         'stock' => 15,
         'category' => 'Drugs',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Drugs/elixir_of_perun.png'
     ],
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000003',
@@ -26,7 +26,7 @@ return [
         'price' => 8200.00,
         'stock' => 10,
         'category' => 'Drugs',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Drugs/petals_of_yomi.png'
     ],
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000004',
@@ -35,7 +35,7 @@ return [
         'price' => 10000.00,
         'stock' => 12,
         'category' => 'Drugs',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Drugs/soma_resin.png'
     ],
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000005',
@@ -44,7 +44,7 @@ return [
         'price' => 13800.00,
         'stock' => 8,
         'category' => 'Drugs',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Drugs/bloodwine_of_dionysus.png'
     ],
 
     // Artifacts
@@ -55,7 +55,7 @@ return [
         'price' => 18000.00,
         'stock' => 5,
         'category' => 'Artifacts',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Artifacts/hornCentaur.png'
     ],
     [
         'id' => 'ad2f8b1d-bbbb-4a01-a9e2-000000000007',
@@ -64,7 +64,7 @@ return [
         'price' => 16500.00,
         'stock' => 7,
         'category' => 'Artifacts',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Artifacts/mirrorBabaYaga.png'
     ],
     [
         'id' => 'ad2f8b1d-bbbb-4a01-a9e2-000000000008',
@@ -73,7 +73,7 @@ return [
         'price' => 20000.00,
         'stock' => 6,
         'category' => 'Artifacts',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Artifacts/kagutsuchiEmberstone.png'
     ],
     [
         'id' => 'ad2f8b1d-bbbb-4a01-a9e2-000000000009',
@@ -82,7 +82,7 @@ return [
         'price' => 15000.00,
         'stock' => 9,
         'category' => 'Artifacts',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Artifacts/oracleCoin.png'
     ],
     [
         'id' => 'ad2f8b1d-bbbb-4a01-a9e2-000000000010',
@@ -91,7 +91,7 @@ return [
         'price' => 22000.00,
         'stock' => 4,
         'category' => 'Artifacts',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Artifacts/boneRing.png'
     ],
 
     // Weapons
@@ -102,7 +102,7 @@ return [
         'price' => 25000.00,
         'stock' => 3,
         'category' => 'Weapons',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Weapons/PoseidonsTrident.png'
     ],
     [
         'id' => 'ad2f8b1d-cccc-4a01-a9e2-000000000012',
@@ -111,7 +111,7 @@ return [
         'price' => 28500.00,
         'stock' => 2,
         'category' => 'Weapons',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Weapons/SvarogsForgeHammer.png'
     ],
     [
         'id' => 'ad2f8b1d-cccc-4a01-a9e2-000000000013',
@@ -120,7 +120,7 @@ return [
         'price' => 30000.00,
         'stock' => 3,
         'category' => 'Weapons',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Weapons/KatanaofSusanoo.png'
     ],
     [
         'id' => 'ad2f8b1d-cccc-4a01-a9e2-000000000014',
@@ -129,7 +129,7 @@ return [
         'price' => 26000.00,
         'stock' => 6,
         'category' => 'Weapons',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Weapons/BowofArtemis.png'
     ],
     [
         'id' => 'ad2f8b1d-cccc-4a01-a9e2-000000000015',
@@ -138,53 +138,43 @@ return [
         'price' => 24200.00,
         'stock' => 4,
         'category' => 'Weapons',
-        'image_url' => ''
+        'image_url' => '/pages/product/assets/img/Weapons/MoranasIceDagger.png'
     ],
 
-    // Services
+    // 🧙 Services
     [
-        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000016',
         'name' => 'Summoning Ritual: Hades',
         'description' => 'Invoke the Greek god of the underworld for forbidden knowledge—at your own peril.',
-        'price' => 35000.00,
-        'stock' => 2,
-        'category' => 'Services',
-        'image_url' => ''
+        'price' => 35000,
+        'seller' => 'shadownymph',
+        'category' => 'services',
     ],
     [
-        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000017',
         'name' => 'Binding Spell: Rusalka Spirit',
         'description' => 'Slavic ritual to trap and control a vengeful female water spirit.',
-        'price' => 31000.00,
-        'stock' => 3,
-        'category' => 'Services',
-        'image_url' => ''
+        'price' => 31000,
+        'seller' => 'duskwhisper',
+        'category' => 'services',
     ],
     [
-        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000018',
         'name' => 'Talisman Imbuing Ceremony',
         'description' => 'Shinto-style blessing performed remotely to empower personal artifacts.',
-        'price' => 29500.00,
-        'stock' => 5,
-        'category' => 'Services',
-        'image_url' => ''
+        'price' => 29500,
+        'seller' => 'voidsight',
+        'category' => 'services',
     ],
     [
-        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000019',
         'name' => 'Olympian Blood Pact',
         'description' => 'Forge a pact with a minor Greek deity in exchange for temporary power.',
-        'price' => 40000.00,
-        'stock' => 1,
-        'category' => 'Services',
-        'image_url' => ''
+        'price' => 40000,
+        'seller' => 'onmyoshade',
+        'category' => 'services',
     ],
     [
-        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000020',
         'name' => 'Yokai Consultation & Summoning',
-        'description' => 'A ritual to summon and bind a yokai for guidance or revenge.',
-        'price' => 38000.00,
-        'stock' => 2,
-        'category' => 'Services',
-        'image_url' => ''
+        'description' => 'For experienced users only. A ritual to summon and bind a yokai for guidance or revenge.',
+        'price' => 38000,
+        'seller' => 'gravebloom',
+        'category' => 'services',
     ]
 ];
