@@ -1,3 +1,4 @@
+<?php include LAYOUTS_PATH . "/main.layout.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,9 @@
   <link rel="stylesheet" href="/pages/product/assets/css/product.css">
   
 </head>
-<body>
-  <?php include LAYOUTS_PATH . "/main.layout.php"; ?>
+<body></body>
   <div class="main-container">
-    <div class="container">
+    <div class="product-container">
       <aside class="sidebar">
         <h2>Category</h2>
         <div class="filter-group">
