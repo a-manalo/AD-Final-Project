@@ -11,4 +11,5 @@ define('ERRORS_PATH', realpath(BASE_PATH . "/errors"));
 define('SQL_PATH', realpath(BASE_PATH . "/sql"));
 define('TEMPLATES_PATH', realpath(BASE_PATH . "/components/templates"));
 define('COMPONENTS_GROUP_PATH', realpath(BASE_PATH . "/components/componentGroup"));
+define('DATABASE_PATH', realpath(BASE_PATH . "/database"));
 chdir(BASE_PATH);
