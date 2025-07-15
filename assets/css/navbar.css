@@ -34,6 +34,13 @@
   --jet: #333533ff;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Enriqueta", serif;
+}
+
 .site-disclaimer {
   background-color: var(--alabaster);
   color: var(--eerie-black);
@@ -52,6 +59,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 10px;
 }
 
 .navbar .container .logo img {
