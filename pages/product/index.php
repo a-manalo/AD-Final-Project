@@ -8,6 +8,7 @@
   
 </head>
 <body>
+  <?php include LAYOUTS_PATH . "/main.layout.php"; ?>
   <div class="main-container">
     <div class="container">
       <aside class="sidebar">
