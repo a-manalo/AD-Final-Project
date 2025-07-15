@@ -1,123 +1,48 @@
-<!--Temporary Data?--->
-
 <?php
-$products = [
+$user = [
+    'username' => 'shadownymph',
+    'joined' => '2023-01-10',
+    'reputation_score' => '4.5/5', // Added this based on the UI expectation (★★★★☆)
+];
+
+$userProducts = [
     [
         'name' => 'Ambrosia Dust',
-        'price' => 1299.99,
-        'image' => '/pages/product/img/Artifacts/boneRing.png',
-        'description' => 'Fine golden powder said to grant temporary invulnerability and clarity of mind. Favored by the gods of Olympus.'
+        'price' => 12000,
+        'description' => 'Fine golden powder...',
+        'seller' => 'shadownymph',
+        'category' => 'drugs',
+        'image' => '/pages/product/assets/img/Drugs/ambrosia_dust.png'
     ],
     [
-        'name' => 'Shadow Sneakers',
-        'price' => 2199.00,
-        'image' => '/assets/img/Website-Logo.png',
-        'description' => 'rewed from herbs gathered on stormy nights; grants strength and resilience like Perun, the Slavic thunder god.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
-    ],
-    [
-        'name' => 'Nightfall Jacket',
-        'price' => 3299.50,
-        'image' => '/assets/img/Website-Logo.png'
-        ,
-        'description' => 'Extracted from flowers in the Japanese underworld (Yomi); causes lucid dreams and spirit communication.'
+        'name' => 'Soma Resin',
+        'price' => 10000,
+        'description' => 'Sticky resin from Vedic rituals...',
+        'seller' => 'shadownymph',
+        'category' => 'drugs',
+        'image' => '/pages/product/assets/img/Drugs/soma_resin.png'
     ]
 ];
-?>
+
+$orderHistory = [
+    [
+        'product_name' => 'Petals of Yomi',
+        'date' => '2024-06-20',
+        'status' => 'Delivered'
+    ],
+    [
+        'product_name' => 'Horn of the Centaur',
+        'date' => '2024-07-02',
+        'status' => 'Shipped'
+    ],
+    [ // Added another status to demonstrate the 'pending' or 'failed' styling
+        'product_name' => 'Dragon\'s Breath Elixir',
+        'date' => '2024-07-10',
+        'status' => 'Pending'
+    ],
+    [
+        'product_name' => 'Crimson Vial',
+        'date' => '2024-07-12',
+        'status' => 'Failed'
+    ]
+];
