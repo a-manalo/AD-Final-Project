@@ -21,7 +21,7 @@
         <?php if (isset($_SESSION['user'])): ?>
             <li><a href="/pages/" class = "login-btn">Account</a></li>
         <?php else: ?>
-            <li><a href="/pages/Login/index.php">Login</a></li>
+            <li><a href="/pages/user-profile/index.php">Login</a></li>
         <?php endif; ?>
       </ul>
     </div>
