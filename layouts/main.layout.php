@@ -11,11 +11,7 @@
 </head>
 <body>
     <?php 
-    
-    include 'components/templates/navbar.component.php';
-    #include 'components/templates/footer.component.php';
-    
+    include TEMPLATES_PATH . "/navbar.component.php";    
     ?>
-
 </body>
 </html>

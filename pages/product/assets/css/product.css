@@ -1,0 +1,295 @@
+/*Header Font*/
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Atkinson+Hyperlegible+Mono:ital@0;1&family=Borel&family=Bubblegum+Sans&family=Bubbler+One&family=Cherry+Bomb+One&family=Crafty+Girls&family=Enriqueta:wght@400;500;600;700&family=Fuzzy+Bubbles:wght@400;700&family=Gochi+Hand&family=Hachi+Maru+Pop&family=Metamorphous&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&family=Poppins&family=Rubik+Puddles&family=Share+Tech+Mono&family=Sono:wght@200..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+.enriqueta-regular {
+  font-family: "Enriqueta", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.enriqueta-medium {
+  font-family: "Enriqueta", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.enriqueta-semibold {
+  font-family: "Enriqueta", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.enriqueta-bold {
+  font-family: "Enriqueta", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  /* CSS HEX */
+  --platinum: #cfdbd5ff;
+  --alabaster: #e8eddfff;
+  --saffron: #f5cb5cff;
+  --eerie-black: #242423ff;
+  --jet: #333533ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fff;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 1rem;
+  border: 3px solid var(--saffron);
+  height: 100%; /* Ensure it stretches to match siblings in grid */
+}
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.product-card p {
+  font-weight: bold;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  padding: 20px;
+  background: linear-gradient(rgba(36, 35, 35, 0.7), rgba(36, 35, 35, 0.7)),
+    url("/pages/product/assets/img/sidebar2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  /* REMOVE this: height: 100vh; */
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border: 3px solid var(--saffron);
+  /* Add this to ensure sidebar stretches: */
+  align-self: stretch; /* optional, default stretch usually */
+}
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: var(--saffron);
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-group ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.filter-group li {
+  margin-bottom: 40px;
+}
+
+.filter-group a {
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--saffron);
+  display: block; /* changed from inline-block */
+  width: 100%; /* make it full width of the parent */
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  box-sizing: border-box; /* ensures padding doesn't overflow */
+}
+
+.filter-group a:hover {
+  background-color: var(--saffron);
+  color: white;
+}
+
+.content {
+  flex: 1;
+  padding: 30px;
+}
+
+.content h1 {
+  color: var(--saffron);
+}
+
+.main-container {
+  margin: 10px;
+  background-color: var(--eerie-black);
+  border-radius: 30px;
+  border: 5px solid var(--saffron);
+}
+
+.filter-group a.active {
+  background-color: var(--saffron);
+  color: white;
+}
+
+h3 {
+  color: rgb(219, 164, 93);
+}
+
+.product-price {
+  border-bottom: 2px solid var(--saffron); /* or any color you want */
+  padding-bottom: 2px; /* optional spacing */
+  display: inline-block; /* so border only spans text width */
+}
+
+.product-meta {
+  margin-top: 15%;
+}
+
+.product-seller {
+  margin-top: 15%;
+  font-style: italic;
+}
+
+.blackmarket-btn {
+  background-color: var(--saffron);
+  border-radius: 20px;
+  margin-top: 10px;
+  padding: 10px;
+  transition: transform 0.3s;
+  min-width: 100%;
+}
+
+.blackmarket-btn:hover {
+  transform: translateY(-5px);
+  background-color: var(--eerie-black);
+  color: var(--saffron);
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.product-price {
+  border-bottom: 2px solid var(--saffron); /* or any color you want */
+  padding-bottom: 2px; /* optional spacing */
+  display: inline-block; /* so border only spans text width */
+}
+
+.category-heading {
+  font-size: 2rem;
+  margin: 30px 0 10px;
+  color: var(--saffron);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-radius: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .sidebar h2 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .filter-group ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .filter-group li {
+    margin-bottom: 10px;
+  }
+
+  .filter-group a {
+    font-size: 18px;
+    text-align: center;
+    padding: 8px 12px;
+    width: auto;
+  }
+
+  .main-container {
+    margin: 20px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .product-card h3 {
+    font-size: 1rem;
+  }
+
+  .blackmarket-btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .sidebar {
+    padding: 10px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .content h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .blackmarket-btn {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
