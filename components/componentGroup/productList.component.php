@@ -1,7 +1,21 @@
-<?php require_once __DIR__ . '/../../staticDatas/product.staticData.php'?>
+<?php require_once STATICDATAS_PATH . "/product.staticData.php"; ?>
 
-<div class="product-grid">
-    <?php foreach ($products as $product): ?>
-        <?php include __DIR__ . '/../../components/templates/productCard.component.php'; ?>
-    <?php endforeach; ?>
-</div>
+<?php
+$groupedProducts = [];
+
+foreach ($products as $product) {
+    $category = $product['category'] ?? 'uncategorized';
+    $groupedProducts[$category][] = $product;
+}
+?>
+
+<?php foreach ($groupedProducts as $category => $categoryProducts): ?>
+    <section class="product-section" data-category="<?= htmlspecialchars($category) ?>">
+        <h2 class="category-heading"><?= ucfirst($category) ?></h2>
+        <div class="product-grid">
+            <?php foreach ($categoryProducts as $product): ?>
+                <?php include TEMPLATES_PATH . "/productCard.component.php"; ?>
+            <?php endforeach; ?>
+        </div>
+    </section>
+<?php endforeach; ?>
