@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sidebar Filter</title>
   <link rel="stylesheet" href="/pages/product/assets/css/product.css">
+  
 </head>
 <body>
   <div class="main-container">
@@ -27,8 +28,6 @@
       </main>
     </div>
   </div>
+  <script src="/pages/product/assets/js/category_filter.js"></script>
 </body>
-
-
-
 </html>
