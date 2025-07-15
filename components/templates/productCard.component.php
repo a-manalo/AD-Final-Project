@@ -17,6 +17,6 @@
     <?php endif; ?>
   </div>
 
-  <button class="blackmarket-btn">Add to Cart</button>
+  <button class="blackmarket-btn">Buy</button>
 </div>
 <?php endif; ?>
