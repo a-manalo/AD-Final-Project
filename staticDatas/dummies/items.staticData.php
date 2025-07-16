@@ -7,7 +7,7 @@ return [
         'description' => 'Fine golden powder said to grant temporary invulnerability and clarity of mind. Favored by the gods of Olympus.',
         'price' => 12000.00,
         'stock' => 20,
-        'category' => 'Drugs',
+        'category' => 'Elixirs',
         'image_url' => '/pages/product/assets/img/Drugs/ambrosia_dust.png'
     ],
     [
@@ -16,7 +16,7 @@ return [
         'description' => 'Brewed from herbs gathered on stormy nights; grants strength and resilience like the Slavic thunder god.',
         'price' => 9500.00,
         'stock' => 15,
-        'category' => 'Drugs',
+        'category' => 'Elixirs',
         'image_url' => '/pages/product/assets/img/Drugs/elixir_of_perun.png'
     ],
     [
@@ -25,7 +25,7 @@ return [
         'description' => 'Extracted from flowers in the Japanese underworld, causes lucid dreams and spirit communication.',
         'price' => 8200.00,
         'stock' => 10,
-        'category' => 'Drugs',
+        'category' => 'Elixirs',
         'image_url' => '/pages/product/assets/img/Drugs/petals_of_yomi.png'
     ],
     [
@@ -34,7 +34,7 @@ return [
         'description' => 'Sticky resin used in sacred rites, derived from ancient Vedic-Japanese fusion rituals. Heightens perception and combat focus.',
         'price' => 10000.00,
         'stock' => 12,
-        'category' => 'Drugs',
+        'category' => 'Elixirs',
         'image_url' => '/pages/product/assets/img/Drugs/soma_resin.png'
     ],
     [
@@ -43,7 +43,7 @@ return [
         'description' => 'Forbidden vintage infused with frenzy and ecstasy; not for the faint of heart.',
         'price' => 13800.00,
         'stock' => 8,
-        'category' => 'Drugs',
+        'category' => 'Elixirs',
         'image_url' => '/pages/product/assets/img/Drugs/bloodwine_of_dionysus.png'
     ],
 
@@ -148,6 +148,7 @@ return [
         'price' => 35000,
         'seller' => 'shadownymph',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/hades.png'
     ],
     [
         'name' => 'Binding Spell: Rusalka Spirit',
@@ -155,6 +156,7 @@ return [
         'price' => 31000,
         'seller' => 'duskwhisper',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/slavic.png'
     ],
     [
         'name' => 'Talisman Imbuing Ceremony',
@@ -162,6 +164,7 @@ return [
         'price' => 29500,
         'seller' => 'voidsight',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/talisman.png'
     ],
     [
         'name' => 'Olympian Blood Pact',
@@ -169,6 +172,7 @@ return [
         'price' => 40000,
         'seller' => 'onmyoshade',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/bloodpact.png'
     ],
     [
         'name' => 'Yokai Consultation & Summoning',
@@ -176,5 +180,6 @@ return [
         'price' => 38000,
         'seller' => 'gravebloom',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/yokai.png'
     ]
 ];
