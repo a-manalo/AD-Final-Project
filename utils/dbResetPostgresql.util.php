@@ -24,7 +24,8 @@ $dbFiles = [
     'users.model.sql',
     'transactions.model.sql',
     'payments.model.sql',
-    'items.model.sql'
+    'items.model.sql',
+    'transaction_items.model.sql'
 ];
 
 foreach ($dbFiles as $dbFile) {
@@ -44,7 +45,7 @@ foreach ($dbFiles as $dbFile) {
 
 // Clean the tables
 echo "Truncating tables…\n";
-foreach (['users', 'transactions', 'payments', 'items'] as $table) {
+foreach (['users', 'transactions', 'payments', 'items', 'transaction_items'] as $table) {
     $pdo->exec("TRUNCATE TABLE {$table} RESTART IDENTITY CASCADE;");
 }
 echo "Tables successfully truncated.\n";

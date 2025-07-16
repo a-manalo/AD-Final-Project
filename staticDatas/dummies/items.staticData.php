@@ -1,6 +1,6 @@
 <?php
 return [
-    // Drugs
+    // Elixirs
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000001',
         'name' => 'Ambrosia Dust',
@@ -8,7 +8,7 @@ return [
         'price' => 12000.00,
         'stock' => 20,
         'category' => 'Elixirs',
-        'image_url' => '/pages/product/assets/img/Drugs/ambrosia_dust.png'
+        'image_url' => '/pages/product/assets/img/Elixirs/ambrosia_dust.png'
     ],
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000002',
@@ -17,7 +17,7 @@ return [
         'price' => 9500.00,
         'stock' => 15,
         'category' => 'Elixirs',
-        'image_url' => '/pages/product/assets/img/Drugs/elixir_of_perun.png'
+        'image_url' => '/pages/product/assets/img/Elixirs/elixir_of_perun.png'
     ],
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000003',
@@ -26,7 +26,7 @@ return [
         'price' => 8200.00,
         'stock' => 10,
         'category' => 'Elixirs',
-        'image_url' => '/pages/product/assets/img/Drugs/petals_of_yomi.png'
+        'image_url' => '/pages/product/assets/img/Elixirs/petals_of_yomi.png'
     ],
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000004',
@@ -35,7 +35,7 @@ return [
         'price' => 10000.00,
         'stock' => 12,
         'category' => 'Elixirs',
-        'image_url' => '/pages/product/assets/img/Drugs/soma_resin.png'
+        'image_url' => '/pages/product/assets/img/Elixirs/soma_resin.png'
     ],
     [
         'id' => 'ad2f8b1d-aaaa-4a01-a9e2-000000000005',
@@ -44,7 +44,7 @@ return [
         'price' => 13800.00,
         'stock' => 8,
         'category' => 'Elixirs',
-        'image_url' => '/pages/product/assets/img/Drugs/bloodwine_of_dionysus.png'
+        'image_url' => '/pages/product/assets/img/Elixirs/bloodwine_of_dionysus.png'
     ],
 
     // Artifacts
@@ -143,41 +143,51 @@ return [
 
     // 🧙 Services
     [
+        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000016',
         'name' => 'Summoning Ritual: Hades',
         'description' => 'Invoke the Greek god of the underworld for forbidden knowledge—at your own peril.',
         'price' => 35000,
+        'stock' => 3,
         'seller' => 'shadownymph',
         'category' => 'services',
         'image_url' => '/pages/product/assets/img/Web_Services/hades.png'
     ],
     [
+        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000017',
         'name' => 'Binding Spell: Rusalka Spirit',
         'description' => 'Slavic ritual to trap and control a vengeful female water spirit.',
         'price' => 31000,
+        'stock' => 2,
         'seller' => 'duskwhisper',
         'category' => 'services',
         'image_url' => '/pages/product/assets/img/Web_Services/slavic.png'
     ],
     [
+        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000018',
         'name' => 'Talisman Imbuing Ceremony',
         'description' => 'Shinto-style blessing performed remotely to empower personal artifacts.',
         'price' => 29500,
+        'stock' => 2,
         'seller' => 'voidsight',
         'category' => 'services',
         'image_url' => '/pages/product/assets/img/Web_Services/talisman.png'
     ],
     [
+        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000019',
         'name' => 'Olympian Blood Pact',
         'description' => 'Forge a pact with a minor Greek deity in exchange for temporary power.',
         'price' => 40000,
+        'stock' => 5,
         'seller' => 'onmyoshade',
         'category' => 'services',
         'image_url' => '/pages/product/assets/img/Web_Services/bloodpact.png'
     ],
     [
+        'id' => 'ad2f8b1d-dddd-4a01-a9e2-000000000020',
         'name' => 'Yokai Consultation & Summoning',
         'description' => 'For experienced users only. A ritual to summon and bind a yokai for guidance or revenge.',
         'price' => 38000,
+        'stock' => 5,
         'seller' => 'gravebloom',
         'category' => 'services',
         'image_url' => '/pages/product/assets/img/Web_Services/yokai.png'
