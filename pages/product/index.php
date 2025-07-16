@@ -17,7 +17,7 @@ renderMainLayout(
                     <div class="filter-group">
                         <ul>
                             <li><a href="#" data-filter="all">All</a></li>
-                            <li><a href="#" data-filter="drugs">Drugs</a></li>
+                            <li><a href="#" data-filter="elixirs">Elixirs</a></li>
                             <li><a href="#" data-filter="weapons">Weapons</a></li>
                             <li><a href="#" data-filter="artifacts">Artifacts</a></li>
                             <li><a href="#" data-filter="services">Services</a></li>
