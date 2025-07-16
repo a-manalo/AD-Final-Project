@@ -27,7 +27,7 @@ function navHeader(?array $user): void
 
         <div class="navbar-menu" id="navbar-menu">
           <ul class="navbar-links">
-            <li><a href="/">Home</a></li>
+            <li><a href="/index.php">Home</a></li>
             <li><a href="/pages/product/index.php">Products</a></li>
             <?php if ($user): ?>
               <li><a href="/pages/user-profile/index.php">Account</a></li>
