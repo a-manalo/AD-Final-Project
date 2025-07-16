@@ -1,0 +1,93 @@
+/*Header Font*/
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Atkinson+Hyperlegible+Mono:ital@0;1&family=Borel&family=Bubblegum+Sans&family=Bubbler+One&family=Cherry+Bomb+One&family=Crafty+Girls&family=Enriqueta:wght@400;500;600;700&family=Fuzzy+Bubbles:wght@400;700&family=Gochi+Hand&family=Hachi+Maru+Pop&family=Metamorphous&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&family=Poppins&family=Rubik+Puddles&family=Share+Tech+Mono&family=Sono:wght@200..800&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap");
+
+.enriqueta-regular {
+  font-family: "Enriqueta", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.enriqueta-medium {
+  font-family: "Enriqueta", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.enriqueta-semibold {
+  font-family: "Enriqueta", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.enriqueta-bold {
+  font-family: "Enriqueta", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  /* CSS HEX */
+  --platinum: #cfdbd5ff;
+  --alabaster: #e8eddfff;
+  --saffron: #f5cb5cff;
+  --eerie-black: #242423ff;
+  --jet: #333533ff;
+  /* Added custom variables from previous iterations if they were missing */
+  --crimson-glow: #a25772;
+  --glow: 0 0 8px rgba(245, 203, 92, 0.5);
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Enriqueta", serif;
+}
+
+.error-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 40px 20px;
+  background-color: var(--eerie-black);
+  color: var(--platinum);
+  text-align: center;
+  position: relative;
+  background-image: linear-gradient(
+      rgba(36, 35, 35, 0.9),
+      rgba(36, 35, 35, 0.8)
+    ),
+    url("/assets/img/scare.gif");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.error-container h1 {
+  font-size: 4rem;
+  color: var(--saffron);
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px rgba(245, 203, 92, 0.4);
+}
+
+.error-container p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: var(--platinum);
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--jet);
+  color: var(--saffron);
+  text-decoration: none;
+  border: 2px solid var(--saffron);
+  border-radius: 4px;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: var(--saffron);
+  color: var(--eerie-black);
+}
