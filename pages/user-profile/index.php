@@ -33,7 +33,7 @@ if ($role === 'seller') {
 // Render the layout
 require_once LAYOUTS_PATH . '/main.layout.php';
 
-renderMainLayout(function () use ($role, $user) {
+renderMainLayout(function () use ($role, $user, $userTransactions, $userListings) {
     ?>
 
     <div class="black-market-profile-page">
@@ -42,11 +42,11 @@ renderMainLayout(function () use ($role, $user) {
                 <div class="sidebar-item active" data-section="profile">Profile</div>
 
                 <?php if ($role === 'buyer'): ?>
-                    <div class="sidebar-item" data-section="orders">Orders</div>
+                    <div class="sidebar-item" data-section="orders">Orders (<?= count($userTransactions) ?>)</div>
                 <?php endif; ?>
 
                 <?php if ($role === 'seller'): ?>
-                    <div class="sidebar-item" data-section="listings">Listings</div>
+                    <div class="sidebar-item" data-section="listings">Listings (<?= count($userListings) ?>)</div>
                 <?php endif; ?>
 
                 <?php if ($role === 'admin'): ?>
