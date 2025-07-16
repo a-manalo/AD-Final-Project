@@ -37,10 +37,19 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: "Enriqueta", serif;
 }
 
 body {
   background-color: #fff;
+}
+
+.main-container {
+  background-color: var(--eerie-black);
+  border-radius: 30px;
+  border: 5px solid var(--saffron);
+  margin: 20px;
 }
 
 .product-grid {
@@ -79,14 +88,7 @@ body {
   color: #333;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-}
-
-.container {
+.product-container {
   display: flex;
   min-height: 100vh;
 }
@@ -100,12 +102,10 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* REMOVE this: height: 100vh; */
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border: 3px solid var(--saffron);
-  /* Add this to ensure sidebar stretches: */
-  align-self: stretch; /* optional, default stretch usually */
+  align-self: stretch;
 }
 .sidebar h2 {
   margin-bottom: 20px;
@@ -152,13 +152,6 @@ body {
   color: var(--saffron);
 }
 
-.main-container {
-  margin: 10px;
-  background-color: var(--eerie-black);
-  border-radius: 30px;
-  border: 5px solid var(--saffron);
-}
-
 .filter-group a.active {
   background-color: var(--saffron);
   color: white;
@@ -190,6 +183,9 @@ h3 {
   padding: 10px;
   transition: transform 0.3s;
   min-width: 100%;
+  text-decoration: none;
+  color: var(--eerie-black);
+  font-weight: 700;
 }
 
 .blackmarket-btn:hover {
@@ -215,7 +211,7 @@ h3 {
 }
 
 @media (max-width: 1024px) {
-  .container {
+  .product-container {
     flex-direction: column;
   }
 

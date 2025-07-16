@@ -16,9 +16,13 @@ filterLinks.forEach((link) => {
         : filter.charAt(0).toUpperCase() + filter.slice(1);
 
     sections.forEach((section) => {
-      const sectionCategory = section.getAttribute("data-category");
+      const sectionCategory = section
+        .getAttribute("data-category")
+        .toLowerCase();
       section.style.display =
-        filter === "all" || sectionCategory === filter ? "block" : "none";
+        filter === "all" || sectionCategory === filter.toLowerCase()
+          ? "block"
+          : "none";
     });
   });
 });

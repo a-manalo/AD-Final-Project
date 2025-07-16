@@ -302,3 +302,17 @@ body {
     display: none;
   }
 }
+
+.error-messages {
+  background: #ffe6e6;
+  color: #d8000c;
+  padding: 10px;
+  border: 1px solid #d8000c;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+.error-messages ul {
+  margin: 0;
+  padding: 0 0 0 20px;
+}

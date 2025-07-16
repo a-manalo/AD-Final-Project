@@ -1,20 +1,8 @@
-<?php 
-include 'layouts/main.layout.php';
-?>
+<?php
+require_once LAYOUTS_PATH . "/main.layout.php";
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Forbidden Codex</title>
-    <link rel="stylesheet" href="/assets/css/hero.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-</head>
-<body>
+renderMainLayout(function () {
+    ?>
     <!-- Hero Section -->
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <!-- Indicators -->
@@ -23,6 +11,7 @@ include 'layouts/main.layout.php';
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
         </div>
+
         <!-- Slides -->
         <div class="carousel-inner">
             <!-- Slide 1 -->
@@ -34,6 +23,7 @@ include 'layouts/main.layout.php';
                     <a href="/pages/Login/index.php" class="btn btn-primary">Get Started</a>
                 </div>
             </div>
+
             <!-- Slide 2 -->
             <div class="carousel-item text-center">
                 <img src="/assets/img/hero_no_text.png" class="d-block w-100" alt="Second slide">
@@ -43,6 +33,7 @@ include 'layouts/main.layout.php';
                     <a href="/pages" class="btn btn-warning">Browse Archives</a>
                 </div>
             </div>
+
             <!-- Slide 3 -->
             <div class="carousel-item text-center">
                 <img src="/assets/img/hero_no_text.png" class="d-block w-100" alt="Third slide">
@@ -53,6 +44,7 @@ include 'layouts/main.layout.php';
                 </div>
             </div>
         </div>
+
         <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -63,7 +55,20 @@ include 'layouts/main.layout.php';
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</body>
 
-</body>
-</html>
+    <?php
+},
+    "The Forbidden Codex",
+    [
+        'css' => [
+            '/assets/css/hero.css',
+            '/assets/css/main.css',
+            '/assets/css/navbar.css',
+            '/assets/css/footer.css',
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
+        ],
+        'js' => [
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js'
+        ]
+    ]
+);
