@@ -16,7 +16,7 @@ function footerComponent()
                         <li>Elixirs</a></li>
                         <li>Weapons</a></li>
                         <li>Cursed Artifacts</a></li>
-                        <li>ummoning Rituals</a></li>
+                        <li>Summoning Rituals</a></li>
                     </ul>
                 </div>
 
