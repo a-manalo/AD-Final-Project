@@ -153,7 +153,7 @@ switch ($table) {
                 ':transaction_id' => $ti['transaction_id'],
                 ':item_id'        => $ti['item_id'],
                 ':quantity'       => $ti['quantity'],
-                ':unit_price'     => $ti['price_each'],
+                ':unit_price'     => $ti['unit_price'],
             ]);
         }
         echo "Transaction items seeded.\n";
@@ -288,7 +288,7 @@ switch ($table) {
             ':transaction_id' => $ti['transaction_id'],
             ':item_id'        => $ti['item_id'],
             ':quantity'       => $ti['quantity'],
-            ':unit_price'     => $ti['price_each'],
+            ':unit_price'     => $ti['unit_price'],
         ]);
     }
     echo "Transaction items seeded.\n";
