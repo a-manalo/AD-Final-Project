@@ -1,32 +1,37 @@
 <?php
-    declare(strict_types=1);
+declare(strict_types=1);
 
-    require_once BASE_PATH . '/vendor/autoload.php';
-    require_once UTILS_PATH . '/auth.util.php';
-    require_once UTILS_PATH . '/refresh_user.util.php';
+require_once BASE_PATH . '/vendor/autoload.php';
+require_once UTILS_PATH . '/auth.util.php';
+require_once UTILS_PATH . '/refresh_user.util.php';
+require_once UTILS_PATH . '/orders.util.php';
 
-    Auth::init();
+Auth::init();
 
-    if (!Auth::user()) {
-        header('Location: /pages/Login/index.php');
-        exit;
-    }
+if (!Auth::user()) {
+    header('Location: /pages/Login/index.php');
+    exit;
+}
 
-    UserSessionRefresher::refresh();
-    $user = $_SESSION['user']; // Always use refreshed data
+// Refresh session and extract user data
+UserSessionRefresher::refresh();
+$user = $_SESSION['user'];
+$role = $user['role'];
 
-    $role = $user['role'];
+// Prepare data depending on role
+$userTransactions = [];
+$userListings = [];
 
-    require_once UTILS_PATH . '/orders.util.php';
+if ($role === 'buyer') {
+    $userTransactions = getBuyerOrders($user['id']);
+}
 
-    $userTransactions = [];
+if ($role === 'seller') {
+    $userListings = getItemsBySeller($user['username']);
+}
 
-    if ($role === 'buyer') {
-        $userTransactions = getBuyerOrders($user['id']);
-    }
-
-    require_once LAYOUTS_PATH . '/main.layout.php';
-
+// Render the layout
+require_once LAYOUTS_PATH . '/main.layout.php';
 
 renderMainLayout(function () use ($role, $user) {
     ?>
@@ -41,7 +46,6 @@ renderMainLayout(function () use ($role, $user) {
                 <?php endif; ?>
 
                 <?php if ($role === 'seller'): ?>
-                    <div class="sidebar-item" data-section="transactions">Transactions</div>
                     <div class="sidebar-item" data-section="listings">Listings</div>
                 <?php endif; ?>
 
@@ -124,9 +128,26 @@ renderMainLayout(function () use ($role, $user) {
                 <?php endif; ?>
 
                 <?php if ($role === 'seller'): ?>
-                    <div class="content-section hidden" id="section-transactions">
-                        <h2>Your Transactions</h2>
-                        <p>[Transactions content here]</p>
+                    <div class="content-section hidden" id="section-listings">
+                        <h2>Your Listings</h2>
+
+                        <?php if (!empty($userListings)): ?>
+                            <div class="listings-grid">
+                                <?php foreach ($userListings as $item): ?>
+                                    <div class="listing-card">
+                                        <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="listing-img">
+                                        <h4><?= htmlspecialchars($item['name']) ?></h4>
+                                        <p><?= htmlspecialchars($item['description']) ?></p>
+                                        <p><strong>₱<?= number_format((float)$item['price'], 2) ?></strong></p>
+                                        <p>Stock: <?= (int)$item['stock'] ?></p>
+                                        <p>Category: <?= htmlspecialchars($item['category']) ?></p>
+                                        <p><small>Listed on <?= date('F j, Y g:i A', strtotime($item['created_at'])) ?></small></p>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
+                            <p>You have no listings yet.</p>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
 
@@ -163,35 +184,6 @@ renderMainLayout(function () use ($role, $user) {
                             <p>No pending seller requests.</p>
                         <?php endif; ?>
                     </div>
-
-                    <div class="content-section hidden" id="section-listings">
-                        <h2>Your Listings</h2>
-                        <div class="seller-listings">
-                            <div class="listings-header">
-                                <button class="add-product-btn">+ Add New Product</button>
-                            </div>
-
-                            <?php if (!empty($userProducts)): ?>
-                                <div class="listings-grid">
-                                    <?php foreach ($userProducts as $product): ?>
-                                        <div class="listing-card">
-                                            <img src="<?= htmlspecialchars($product['image_url']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="listing-image">
-                                            <h3><?= htmlspecialchars($product['name']) ?></h3>
-                                            <p class="price">₱<?= number_format($product['price'], 2) ?></p>
-                                            <p class="category">Category: <?= ucfirst($product['category']) ?></p>
-                                            <p class="description"><?= htmlspecialchars($product['description']) ?></p>
-                                            <div class="actions">
-                                                <button class="edit-btn">Edit</button>
-                                                <button class="delete-btn">Remove</button>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php else: ?>
-                                <p>You haven’t listed any products yet.</p>
-                            <?php endif; ?>
-                        </div>
-                    </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -204,7 +196,7 @@ renderMainLayout(function () use ($role, $user) {
             '/pages/user-profile/assets/css/user-profile.css',
             '/assets/css/main.css',
             '/assets/css/navbar.css',
-            // '/assets/css/footer.css',
+            '/assets/css/footer.css',
             'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
         ],
         'js' => [
