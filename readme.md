@@ -4,16 +4,15 @@
 
 <br />
 <div align="center">
-  <a href="https://github.com/zyx-0314/">
-  <!-- TODO: If you want to add logo or banner you can add it here -->
-  
+  <a href="https://github.com/a-manalo/">
+  <img src="./assets/img/logo.png" alt="The Forbidden Codex" width="400" height="100">
   </a>
-<!-- TODO: Change Title to the name of the title of your Project -->
-  <h3 align="center">Black Market</h3>
+
+  <h3 align="center">The Forbidden Codex</h3>
 </div>
-<!-- TODO: Make a short description -->
+
 <div align="center">
-  A mythology-themed black market website.
+  A Black Market Mythology Website
 </div>
 
 <br />
@@ -25,7 +24,6 @@
 <br />
 <br />
 
-<!-- TODO: If you want to add more layers for your readme -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
@@ -53,22 +51,35 @@
 
 ## Overview
 
-<!-- TODO: To be changed -->
-<!-- The following are just sample -->
-
-Description of the project in details.
+The Forbidden Codex is a mysterious black market platform set in a mythology theme. Users step into a shadowy marketplace where they can buy forbidden products, manage their account, and interact based on their assigned roles. The website has user authentication, role-based functionalities, transactions, and CRUD operations. Whether you’re a Buyer looking to acquire rare artifacts, a Seller managing secret listings, or an Admin maintaining the order behind the chaos, this website is a functional dark e-commerce platform.
 
 ### Key Components
 
-<!-- TODO: List of Key Components -->
-<!-- The following are just sample -->
-
-- Authentication & Authorization
-- CRUD Operations for Invetory System
+- Home Page
+  - Hero Section
+  - Our Offers
+  - The Forbidden Codex of Conduct
+  - Footer
+- Products Page
+  - Product Categories
+    - Product Details
+    - Buy Product
+- Payment Page
+  - Payment form submission
+  - Database insertion
+- Account Page
+  - User Profile
+  - Dynamic Sidebars Based on Role
+- Authentication System
+  - Login
+  - Signup
+  - Role Authentication
+- Error Page
+- CRUD Operations
+- Database Integration
 
 ### Technology
 
-<!-- TODO: List of Technology Used -->
 #### Language
 ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white)
@@ -76,7 +87,6 @@ Description of the project in details.
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 
 #### Framework/Library
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 #### Databases
@@ -105,38 +115,128 @@ Description of the project in details.
 AD-Final-Project
 └─ assets
 |   └─ css
-|   |   └─ name.css
+|   |   └─ main.css
+|   |   └─ navbar.css
+|   |   └─ footer.css
+|   |   └─ hero.css
+|   |   └─ login_signup.css
+|   |   └─ error.css
 |   └─ img
-|   |   └─ name.jpeg/.jpg/.webp/.png
+|   |   └─ Heading
+|   |     └─ 1.png
+|   |     └─ 2.png
+|   |     └─ 3.png
+|   |     └─ 4.png
+|   |   └─ Background.jpeg
+|   |   └─ greekstuff.png
+|   |   └─ hero_no_text.png
+|   |   └─ hero.png
+|   |   └─ logo.png
+|   |   └─ Other_Website_Logo.png
+|   |   └─ scare.gif
+|   |   └─ Website_Logo.png
+|   |   └─ wood.png
 |   └─ js
-|       └─ name.js
+|       └─ navbar.js
 └─ components
-|   └─ name.component.php
+|   └─ componentGroup
+|      └─ productList.component.php
 |   └─ templates
-|      └─ name.component.php
+|      └─ head.component.php
+|      └─ footer.component.php
+|      └─ foot.component.php
+|      └─ navbar.component.php
+|      └─ productCard.component.php
+└─ database
+|   └─ users.model.sql
+|   └─ items.model.sql
+|   └─ payments.model.sql
+|   └─ transactions.model.sql
+|   └─ transaction_items.model.sql
 └─ handlers
-|   └─ name.handler.php
+|   └─ mongodbChecker.handler.php
+|   └─ postgreChecker.handler.php
+|   └─ auth.handler.php
+|   └─ signup.handler.php
+|   └─ delete_user.handler.php
+|   └─ request_seller.handler.php
+|   └─ seller_request.handler.php
 └─ layout
-|   └─ name.layout.php
+|   └─ main.layout.php
 └─ pages
-|  └─ pageName
+|  └─ login
+|     └─ index.php
+|  └─ signup
+|     └─ index.php
+|  └─ product
 |     └─ assets
 |     |  └─ css
-|     |  |  └─ name.css
+|     |  |  └─ product.css
 |     |  └─ img
-|     |  |  └─ name.jpeg/.jpg/.webp/.png
+|     |     └─ Artifacts
+|     |       └─ boneRing.png
+|     |       └─ hornCentaur.png
+|     |       └─ kagutsuchiEmberstone.png
+|     |       └─ mirrorBabaYaga.png
+|     |       └─ oracleCoin.png
+|     |     └─ Elixirs
+|     |       └─ ambrosia_dust.png
+|     |       └─ bloodwine_of_dionysus.png
+|     |       └─ elixir_of_perun.png
+|     |       └─ petals_of_yomi.png
+|     |       └─ soma_resin.png
+|     |     └─ Weapons
+|     |       └─ BowofArtemis.png
+|     |       └─ KatanaofSusanoo.png
+|     |       └─ MoranasIceDagger.png
+|     |       └─ PoseidonsTrident.png
+|     |       └─ SvarogsForgeHammer.png
+|     |     └─ Web_Services
+|     |       └─ bloodpact.png
+|     |       └─ hades.png
+|     |       └─ slavic.png
+|     |       └─ talisman.png
+|     |       └─ yokai.png
+|     |     └─ sidbar2.png
+|     |     └─ sidebar_img.jpg
+|     |     └─ sidebar2.jpg
 |     |  └─ js
-|     |     └─ name.js
+|     |     └─ category_filter.js
+|     └─ index.php
+|  └─ signup
+|     └─ index.php
+|  └─ user-profile
+|     └─ assets
+|     |  └─ css
+|     |  |  └─ user-profile.css
+|     |  └─ js
+|     |  |  └─ user-profile.js
 |     └─ index.php
 └─ staticData
-|  └─ name.staticdata.php
+|  └─ dummies
+|     └─ users.staticData.php
+|     └─ items.staticData.php
+|     └─ payments.staticData.php
+|     └─ transactions.staticData.php
+|     └─ transaction_items.staticData.php
 └─ utils
-|   └─ name.utils.php
+|   └─ dbResetPostgresql.util.php
+|   └─ dbSeederPostgresql.util.php
+|   └─ dbMigratePostgresql.util.php
+|   └─ auth.util.php
+|   └─ envSetter.util.php
+|   └─ htmlEscape.util.php
+|   └─ signup.util.php
+|   └─ delete_user.util.php
+|   └─ refresh_user.util.php
 └─ vendor
+└─ .dockerignore
 └─ .gitignore
 └─ bootstrap.php
+└─ composer.yaml
 └─ composer.json
 └─ composer.lock
+└─ Dockerfile
 └─ index.php
 └─ readme.md
 └─ router.php
@@ -145,8 +245,9 @@ AD-Final-Project
 
 ## Resources
 
-<!-- TODO: Add References -->
-
 | Title        | Purpose                                                                       | Link          |
 | ------------ | ----------------------------------------------------------------------------- | ------------- |
-| N/A          | N/A                                                                           | N/A           |
+| Google Fonts API          | Used for integrating custom fonts for styling                                                                           | https://fonts.googleapis.com           |
+| ChatGPT | Used for debugging, dummy data creation, and proper code structure. | https://chatgpt.com/ |
+| Bootstrap | Used for frontend framework to make UI responsive. | https://getbootstrap.com |
+| Codehal | Referenced for PHP/MySQL e-commerce tutorials | https://www.youtube.com/@Codehal |
