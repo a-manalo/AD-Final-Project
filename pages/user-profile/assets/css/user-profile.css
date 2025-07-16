@@ -349,8 +349,12 @@
 }
 
 .save-button-container {
-  text-align: right;
+  text-align: center;
   margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
 .save-button {
@@ -510,4 +514,20 @@
 }
 .delete-btn:hover {
   background-color: #a22;
+}
+
+.table,
+.table th,
+.table td {
+  background-color: transparent;
+  color: #000;
+  border: 1px solid #ccc;
+}
+
+.table-user-manager,
+.table-user-manager th,
+.table-user-manager td {
+  background-color: var(--jet) !important;
+  color: var(--saffron) !important;
+  border: 1px solid rgba(245, 203, 92, 0.2);
 }
