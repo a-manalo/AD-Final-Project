@@ -1,17 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/navbar.css">
-    <link rel="stylesheet" href="/assets/css/footer.css">
-    <script src = "/assets/js/footer.js"></script>
-</head>
-<body>
-    <?php 
-    include TEMPLATES_PATH . "/navbar.component.php";    
-    ?>
-</body>
-</html>
+<?php
+declare(strict_types=1);
+
+require_once BASE_PATH . '/bootstrap.php';
+require_once BASE_PATH . '/vendor/autoload.php';
+require_once UTILS_PATH . '/auth.util.php';
+Auth::init();
+
+require_once TEMPLATES_PATH . '/head.component.php';
+require_once TEMPLATES_PATH . '/navbar.component.php';
+require_once TEMPLATES_PATH . '/foot.component.php';
+require_once UTILS_PATH . "/envSetter.util.php";
+
+$user = Auth::user();
+
+function renderMainLayout(callable $content, string $title, array $customJsCss = [], bool $showHeaderFooter = true): void
+{
+    global $user;
+    head($title, $customJsCss['css'] ?? []);
+
+    if ($showHeaderFooter) {
+        navHeader($user);
+    }
+
+    $content();
+
+    //if ($showHeaderFooter) {
+        //footer($customJsCss['js'] ?? []);
+    //}
+}
