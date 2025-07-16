@@ -16,7 +16,6 @@
       <p class="product-seller">Seller: <?= htmlspecialchars($product['seller']) ?></p>
     <?php endif; ?>
   </div>
-
-  <button class="blackmarket-btn">Buy</button>
+  <a href="/pages/Payment/index.php"class="blackmarket-btn">Buy</a>
 </div>
 <?php endif; ?>
