@@ -29,14 +29,23 @@ function getBuyerOrders(string $userId): array {
     ");
     $stmt->execute(['user_id' => $userId]);
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $results;
 }
 
 function getItemsBySeller(string $sellerUsername): array {
     $pdo = createPDO();
 
-    $stmt = $pdo->prepare("SELECT * FROM items WHERE seller = :seller");
+    $stmt = $pdo->prepare("
+        SELECT id, name, description, price, stock, seller, category, image_url, created_at
+        FROM items 
+        WHERE seller = :seller
+        ORDER BY created_at DESC
+    ");
     $stmt->execute(['seller' => $sellerUsername]);
+    
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $results;
 }
