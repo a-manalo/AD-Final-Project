@@ -34,7 +34,7 @@ function navHeader(?array $user): void
               <li><a href="/pages/user-profile/index.php">Account</a></li>
               <li><a href="/handlers/auth.handler.php?action=logout" class="login-btn">Logout</a></li>
             <?php else: ?>
-              <li><a href="/pages/user-profile/index.php" class="login-btn">Login</a></li>
+              <li><a href="/pages/Login/index.php" class="login-btn">Login</a></li>
             <?php endif; ?>
           </ul>
         </div>
