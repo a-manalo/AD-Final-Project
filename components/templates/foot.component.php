@@ -7,10 +7,6 @@ function footer(array $pageJs = [])
     footerComponent();
     ?>
     </main>
-    
-    <script src="/assets/js/footer.js"></script>
-    
-
     <?php
     if (!empty($pageJs)) {
         foreach ($pageJs as $jsFile) {
