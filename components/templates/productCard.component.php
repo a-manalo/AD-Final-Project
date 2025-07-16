@@ -1,8 +1,8 @@
 <?php if (isset($product)): ?>
-<div class="product-card" data-category="<?= htmlspecialchars($product['category'] ?? 'uncategorized') ?>">
+<div class="product-card" data-category="<?= strtolower(htmlspecialchars($product['category'] ?? 'uncategorized')) ?>">
   <div class="product-info">
-    <?php if (!empty($product['image'])): ?>
-      <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
+    <?php if (!empty($product['image_url'])): ?>
+      <img src="<?= htmlspecialchars($product['image_url']) ?>" alt="<?= htmlspecialchars($product['name']) ?>">
     <?php endif; ?>
 
     <h3><?= htmlspecialchars($product['name'] ?? 'Unnamed Product') ?></h3>
