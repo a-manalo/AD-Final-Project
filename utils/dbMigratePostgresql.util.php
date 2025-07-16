@@ -26,6 +26,7 @@ foreach ([
     'transactions',
     'payments',
     'items',
+    'transaction_items'
 ] as $table) {
     // Use IF EXISTS so it won’t error if the table is already gone
     $pdo->exec("DROP TABLE IF EXISTS {$table} CASCADE;");
@@ -37,7 +38,8 @@ $dbFiles = [
     'users.model.sql',
     'transactions.model.sql',
     'payments.model.sql',
-    'items.model.sql'
+    'items.model.sql',
+    'transaction_items.model.sql'
 ];
 
 foreach ($dbFiles as $dbFile) {
