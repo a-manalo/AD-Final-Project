@@ -55,11 +55,24 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+.navbar {
+  position: relative;
+  z-index: 1000;
+  margin-top: 20px; /* Add space for the fixed disclaimer */
+  width: 100%;
+}
+
 .navbar .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
+  width: 100vw;
+  max-width: 100%;
+  padding: 10px 20px;
+  position: relative;
+  box-sizing: border-box;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .navbar .container .logo img {
@@ -69,7 +82,7 @@
 .brand-text {
   display: flex;
   flex-direction: column;
-  margin-right: auto;
+  flex: 1;
   padding-left: 15px;
   padding-top: 10px;
 }
@@ -92,6 +105,37 @@
   text-decoration: none;
 }
 
+/* Hamburger menu button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1001;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background-color: var(--platinum);
+  margin: 3px 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
 .navbar-menu {
   display: flex;
   list-style: none;
@@ -111,19 +155,126 @@
   font-weight: bold;
   color: var(--platinum);
   font-family: "Enriqueta", serif;
+  transition: color 0.3s ease;
 }
 
 .login-btn {
-  border: 2px solid;
+  border: 2px solid var(--platinum);
   padding: 8px 16px;
   border-radius: 100px;
   text-decoration: none;
   font-size: 1em;
   font-weight: bold;
-  color: var(--eerie-black);
+  color: var(--platinum);
+  background-color: transparent;
   font-family: "Enriqueta", serif;
+  transition: all 0.3s ease;
 }
 
 .navbar-links li a:hover {
   color: var(--saffron);
+}
+
+.login-btn:hover {
+  color: var(--saffron);
+  border-color: var(--saffron);
+}
+
+/* Responsive breakpoints */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--jet);
+    flex-direction: column;
+    padding: 20px;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .navbar-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-menu .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .navbar-links li {
+    width: 100%;
+  }
+
+  .navbar-links li a {
+    display: block;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-links li a:hover {
+    background-color: var(--eerie-black);
+    color: var(--saffron);
+  }
+
+  .login-btn {
+    display: inline-block;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar .container {
+    margin: 5px;
+  }
+
+  .navbar .container .logo img {
+    width: 70px;
+  }
+
+  .brand-text {
+    padding-left: 10px;
+  }
+
+  .website-name {
+    font-size: 1.2em;
+  }
+
+  .company-name {
+    font-size: 0.8em;
+  }
+
+  .site-disclaimer {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .hamburger-line {
+    width: 20px;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .navbar-menu {
+    gap: 25px;
+  }
+
+  .navbar-menu .navbar-links {
+    gap: 20px;
+  }
 }
