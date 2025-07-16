@@ -17,6 +17,14 @@
 
     $role = $user['role'];
 
+    require_once UTILS_PATH . '/orders.util.php';
+
+    $userTransactions = [];
+
+    if ($role === 'buyer') {
+        $userTransactions = getBuyerOrders($user['id']);
+    }
+
     require_once LAYOUTS_PATH . '/main.layout.php';
 
 
@@ -97,7 +105,21 @@ renderMainLayout(function () use ($role, $user) {
                 <?php if ($role === 'buyer'): ?>
                     <div class="content-section hidden" id="section-orders">
                         <h2>Your Orders</h2>
-                        <p>[Orders content here]</p>
+                        <?php if (!empty($userTransactions)): ?>
+                            <div class="orders-list">
+                                <?php foreach ($userTransactions as $txn): ?>
+                                    <div class="order-card">
+                                        <p><strong>Order ID:</strong> <?= htmlspecialchars($txn['id']) ?></p>
+                                        <p><strong>Total Amount:</strong> ₱<?= number_format((float)$txn['total_amount'], 2) ?></p>
+                                        <p><strong>Status:</strong> <?= htmlspecialchars($txn['status']) ?></p>
+                                        <p><strong>Date:</strong> <?= htmlspecialchars(date('F j, Y g:i A', strtotime($txn['created_at']))) ?></p>
+                                    </div>
+                                    <hr>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
+                            <p>You have no orders yet.</p>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
 
