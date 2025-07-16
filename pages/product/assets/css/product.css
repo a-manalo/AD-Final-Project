@@ -183,6 +183,9 @@ h3 {
   padding: 10px;
   transition: transform 0.3s;
   min-width: 100%;
+  text-decoration: none;
+  color: var(--eerie-black);
+  font-weight: 700;
 }
 
 .blackmarket-btn:hover {
