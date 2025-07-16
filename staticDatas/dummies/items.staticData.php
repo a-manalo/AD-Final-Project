@@ -148,6 +148,7 @@ return [
         'price' => 35000,
         'seller' => 'shadownymph',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/hades.png'
     ],
     [
         'name' => 'Binding Spell: Rusalka Spirit',
@@ -155,6 +156,7 @@ return [
         'price' => 31000,
         'seller' => 'duskwhisper',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/slavic.png'
     ],
     [
         'name' => 'Talisman Imbuing Ceremony',
@@ -162,6 +164,7 @@ return [
         'price' => 29500,
         'seller' => 'voidsight',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/talisman.png'
     ],
     [
         'name' => 'Olympian Blood Pact',
@@ -169,6 +172,7 @@ return [
         'price' => 40000,
         'seller' => 'onmyoshade',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/bloodpact.png'
     ],
     [
         'name' => 'Yokai Consultation & Summoning',
@@ -176,5 +180,6 @@ return [
         'price' => 38000,
         'seller' => 'gravebloom',
         'category' => 'services',
+        'image_url' => '/pages/product/assets/img/Web_Services/yokai.png'
     ]
 ];
