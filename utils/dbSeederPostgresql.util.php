@@ -69,8 +69,8 @@ switch ($table) {
         echo "Seeding items...\n";
         $data = require DUMMIES_PATH . '/items.staticData.php';
         $stmt = $pdo->prepare("
-            INSERT INTO items (id, name, description, price, stock, category, image_url)
-            VALUES (:id, :name, :description, :price, :stock, :category, :image_url)
+            INSERT INTO items (id, name, description, price, stock, category, image_url, seller)
+            VALUES (:id, :name, :description, :price, :stock, :category, :image_url, :seller)
         ");
         foreach ($data as $i) {
             $stmt->execute([
@@ -79,6 +79,7 @@ switch ($table) {
                 ':description' => $i['description'],
                 ':price'       => $i['price'],
                 ':stock'       => $i['stock'],
+                ':seller'      => $i['seller'],
                 ':category'    => $i['category'],
                 ':image_url'   => $i['image_url'],
             ]);
@@ -207,8 +208,8 @@ switch ($table) {
     echo "Seeding items...\n";
     $data = require DUMMIES_PATH . '/items.staticData.php';
     $stmt = $pdo->prepare("
-        INSERT INTO items (id, name, description, price, stock, category, image_url)
-        VALUES (:id, :name, :description, :price, :stock, :category, :image_url)
+        INSERT INTO items (id, name, description, price, stock, category, image_url, seller)
+        VALUES (:id, :name, :description, :price, :stock, :category, :image_url, :seller)
     ");
     foreach ($data as $i) {
         $stmt->execute([
@@ -217,6 +218,7 @@ switch ($table) {
             ':description' => $i['description'],
             ':price'       => $i['price'],
             ':stock'       => $i['stock'],
+            ':seller'      => $i['seller'],
             ':category'    => $i['category'],
             ':image_url'   => $i['image_url'],
         ]);
