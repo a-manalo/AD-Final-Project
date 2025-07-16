@@ -32,10 +32,14 @@
   --saffron: #f5cb5cff;
   --eerie-black: #242423ff;
   --jet: #333533ff;
+  /* Added custom variables from previous iterations if they were missing */
+  --crimson-glow: #a25772;
+  --glow: 0 0 8px rgba(245, 203, 92, 0.5);
 }
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* Added for better layout control */
   font-family: "Enriqueta", serif;
 }
 
@@ -50,5 +54,147 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  height: 100vh;
+  min-height: 100vh; /* Changed height to min-height to ensure content fits */
+}
+
+.carousel-caption h5 {
+  font-size: 2rem;
+  color: var(--saffron); /* Or any custom variable */
+}
+
+.carousel-caption p {
+  font-size: 1.1rem;
+  color: var(--alabaster);
+}
+
+/*Home Page Design*/
+.rules-guidelines {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+  padding: 10px 10px;
+  color: var(--platinum);
+  flex-wrap: wrap;
+}
+
+.rules-image img {
+  max-width: 600px;
+  width: 100%;
+}
+
+.rules-content {
+  flex: 1;
+  max-width: 600px;
+}
+
+.rules-content h2 {
+  color: var(--saffron);
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.rules-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.rules-content ul li {
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 24px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--alabaster);
+}
+
+.rules-content ul li::before {
+  content: "☠";
+  position: absolute;
+  left: 0;
+  color: var(--saffron);
+  font-size: 16px;
+}
+
+/* --- Offer Section --- */
+.offer-section {
+  max-width: 1200px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.offer-title {
+  font-size: 3em;
+  color: var(--saffron);
+  margin-bottom: 10px;
+  text-shadow: 0 0 15px rgba(245, 203, 92, 0.6);
+}
+
+.offer-subtitle {
+  font-size: 1.2em;
+  color: var(--platinum);
+  margin-bottom: 40px;
+  font-style: italic;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Image Gallery Section (Uniform Sizes) --- */
+.image-gallery-section {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 350px;
+  gap: 40px;
+  padding: 10px;
+}
+
+.image-gallery-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+}
+
+.image-gallery-section img:hover {
+  transform: scale(1.03);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 767px) {
+  .rules-guidelines {
+    flex-direction: column;
+    text-align: center;
+  }
+  .rules-content {
+    max-width: 100%;
+  }
+  .rules-content ul li {
+    text-align: left;
+    padding-left: 28px;
+  }
+
+  .image-gallery-section {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    padding: 20px;
+    gap: 15px;
+  }
+  .image-gallery-section img {
+    height: 280px;
+    object-fit: contain;
+  }
+
+  .offer-section {
+    padding: 40px 10px;
+  }
+  .offer-title {
+    font-size: 2.5em;
+  }
+  .offer-subtitle {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+  }
 }

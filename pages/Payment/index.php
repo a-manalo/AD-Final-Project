@@ -39,7 +39,7 @@ renderMainLayout(function () {
                     <div class="payment-method-item">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <span>In Person</span>
+                    <span>Eye Contact</span>
                 </label>
             </div>
 
