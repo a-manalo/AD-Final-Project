@@ -30,21 +30,6 @@ function navHeader(?array $user): void
             <li><a href="/">Home</a></li>
             <li><a href="/pages/product/index.php">Products</a></li>
             <?php if ($user): ?>
-              <?php
-              // Determine user role and display appropriate links
-              $userRole = $user['role'] ?? 'Buyer'; // Default to 'Buyer' if role is not set
-              switch ($userRole) {
-                  case 'Buyer':
-                      echo '<li><a href="/pages/orders/index.php">My Orders</a></li>';
-                      break;
-                  case 'Seller':
-                      echo '<li><a href="/pages/listings/index.php">My Listings</a></li>';
-                      break;
-                  case 'Admin':
-                      echo '<li><a href="/pages/admin/index.php">Admin Panel</a></li>';
-                      break;
-              }
-              ?>
               <li><a href="/pages/user-profile/index.php">Account</a></li>
               <li><a href="/handlers/auth.handler.php?action=logout" class="login-btn">Logout</a></li>
             <?php else: ?>
