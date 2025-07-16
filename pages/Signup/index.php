@@ -29,6 +29,18 @@ renderMainLayout(function () {
                     <img src="/assets/img/logo.png" alt="Site Logo" class="logo-img">
                 </div>
                 <div class="title">Signup</div>
+
+                <?php if (!empty($_SESSION['signup_errors'])): ?>
+                    <div class="error-messages">
+                        <ul>
+                            <?php foreach ($_SESSION['signup_errors'] as $err): ?>
+                                <li><?= htmlspecialchars($err) ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                    <?php unset($_SESSION['signup_errors']); ?>
+                <?php endif; ?>
+
                 <form action="/handlers/signup.handler.php" method="POST">
                     <input type="hidden" name="action" value="signup">
                     <div class="input-boxes">
