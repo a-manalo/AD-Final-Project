@@ -1,6 +1,6 @@
-<?php require_once STATICDATAS_PATH . "/product.staticData.php"; ?>
-
 <?php
+$products = require_once DUMMIES_PATH . "/items.staticData.php";
+
 $groupedProducts = [];
 
 foreach ($products as $product) {

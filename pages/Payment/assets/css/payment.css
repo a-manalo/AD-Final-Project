@@ -1,0 +1,472 @@
+/*Header Font*/
+@import url("https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Atkinson+Hyperlegible+Mono:ital@0;1&family=Borel&family=Bubblegum+Sans&family=Bubbler+One&family=Cherry+Bomb+One&family=Crafty+Girls&family=Enriqueta:wght@400;500;600;700&family=Fuzzy+Bubbles:wght@400;700&family=Gochi+Hand&family=Hachi+Maru+Pop&family=Metamorphous&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Onest:wght@100..900&family=Poppins&family=Rubik+Puddles&family=Share+Tech+Mono&family=Sono:wght@200..800;1,200..800&display=swap");
+
+.enriqueta-regular {
+  font-family: "Enriqueta", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.enriqueta-medium {
+  font-family: "Enriqueta", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.enriqueta-semibold {
+  font-family: "Enriqueta", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.enriqueta-bold {
+  font-family: "Enriqueta", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  /* CSS HEX */
+  --platinum: #cfdbd5ff;
+  --alabaster: #e8eddfff;
+  --saffron: #f5cb5cff;
+  --eerie-black: #242423ff;
+  --jet: #333533ff;
+  /* Added missing variables used in your CSS */
+  --crimson-glow: #a25772; /* This color was used but not defined in :root */
+  --glow: 0 0 8px rgba(245, 203, 92, 0.5); /* This variable was used but not defined in :root */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Enriqueta", serif;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Container */
+.payment-section {
+  display: flex;
+  justify-content: center;
+}
+
+.payment-right {
+  margin: 30px auto;
+  width: 100%;
+  max-width: 900px;
+  box-sizing: border-box;
+  padding: 0 16px;
+}
+
+.payment-form {
+  background-color: var(--jet);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 0 30px rgba(245, 203, 92, 0.08);
+  border: 1px solid #333;
+}
+
+/* Title and subtitle */
+.payment-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--saffron);
+  margin-bottom: 6px;
+}
+
+.payment-subtitle {
+  font-size: 1rem;
+  color: var(--platinum);
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+/* Transaction Summary */
+.payment-summary {
+  background-color: #1a1a1a;
+  padding: 16px;
+  border: 1px dashed var(--platinum);
+  border-radius: 10px;
+  margin-bottom: 24px;
+  color: var(--platinum);
+}
+
+.payment-summary h3 {
+  margin-bottom: 10px;
+  color: var(--saffron);
+  font-size: 20px;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 17px;
+}
+
+/* Payment Method Selector */
+.payment-subheading {
+  color: var(--alabaster);
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+/* Consolidated .payment-method */
+.payment-method {
+  display: flex;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* Aligns items to the LEFT */
+  gap: 12px; /* For consistent spacing between items */
+}
+
+/* Consolidated .payment-method label */
+.payment-method label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex: 0 0 auto; /* Crucial: Prevents labels from stretching */
+  min-width: 120px; /* Ensures a minimum width for each item */
+  position: relative;
+}
+
+/* Consolidated .payment-method input[type="radio"] */
+.payment-method input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  display: none; /* Ensure it's hidden */
+}
+
+/* Consolidated .payment-method-item */
+.payment-method-item {
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Consolidated checked state for .payment-method-item */
+.payment-method input[type="radio"]:checked + .payment-method-item {
+  border-color: var(--saffron);
+  background-color: #fff;
+  box-shadow: var(--glow);
+}
+
+/* Consolidated pseudo-element for checked state (from previous fix) */
+.payment-method input[type="radio"]:checked + .payment-method-item::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--saffron);
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZD0iTTEwLjAwMDcgMTUuMTcwOUwxOS4xOTMxIDUuOTc4NTJMMjAuNjA3MyA3LjM5MjczTDEwLjAwMDcgMTcuOTk5M0wzLjYzNjcyIDExLjYzNTRMNS4wNTA5MCDx0uMjIyTDxM.wMDA3IDE1LjE3MDlaIiBmaWxsPSJyZ2JhKDI1NSwyNTUuMjU1LDEpIj48L3BhdGg+PC9zdmc+");
+  background-size: 12px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Consolidated .payment-method i (icon styling) */
+.payment-method-item i {
+  /* Changed to be more specific for clarity */
+  font-size: 40px; /* Bigger icon size */
+  color: var(--saffron);
+  display: block;
+}
+/* This specific rule was overriding the more general payment-method i above */
+.payment-method input[type="radio"]:checked + .payment-method-item i {
+  color: var(--saffron);
+}
+
+/* Consolidated .payment-method span (text below icon) */
+.payment-method span {
+  display: block;
+  margin-top: 10px;
+  font-weight: 500;
+  color: #495057; /* Default color */
+  text-align: center;
+  font-size: 12px;
+}
+
+/* Style for span when its associated radio is checked */
+.payment-method input[type="radio"]:checked ~ span {
+  color: var(--saffron);
+}
+
+/* Hide payment method fields by default */
+.payment-method-fields {
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  opacity: 1;
+  max-height: 1000px;
+  overflow: hidden;
+}
+
+.payment-method-fields.hidden {
+  opacity: 0;
+  max-height: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: none;
+}
+
+.payment-form-group {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.payment-form-control {
+  width: 100%;
+  padding: 20px 16px 8px;
+  border: 1px solid #555;
+  border-radius: 8px;
+  background-color: #111;
+  color: var(--platinum);
+  transition: 0.2s ease-in-out;
+  font-size: 17px;
+}
+
+.payment-form-control:focus {
+  border-color: var(--crimson-glow);
+  outline: none;
+  box-shadow: 0 0 8px rgba(162, 87, 114, 0.5);
+}
+
+.payment-form-label {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  color: #aaa;
+  font-size: 15px;
+  transition: 0.2s ease;
+  pointer-events: none;
+}
+
+.payment-form-control:focus + .payment-form-label,
+.payment-form-control:not(:placeholder-shown) + .payment-form-label {
+  top: 25%;
+  font-size: 12px;
+  color: var(--saffron);
+}
+
+.payment-form-label-required::after {
+  content: " *";
+  color: var(--crimson-glow);
+}
+
+.field-hint {
+  font-size: 30px;
+  color: #888;
+  margin-top: 4px;
+  display: block;
+  font-style: italic;
+}
+
+/* Warning Boxes */
+.black-market-warning {
+  background-color: rgba(255, 0, 0, 0.08);
+  color: #e57373;
+  font-size: 13px;
+  padding: 10px 14px;
+  border-left: 4px solid red;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.black-market-warning i {
+  color: red;
+}
+
+/* Copy Address & Countdown */
+.copy-address-section {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  padding: 12px;
+  border-radius: 8px;
+  color: var(--platinum);
+  margin-bottom: 20px;
+}
+
+.copy-address-section code {
+  display: block;
+  margin: 8px 0;
+  background-color: #000;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: monospace;
+  word-break: break-all;
+  font-size: 13px;
+}
+
+.copy-button {
+  background-color: var(--saffron);
+  color: var(--eerie-black);
+  border: none;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.copy-button:hover {
+  background-color: var(--crimson-glow);
+  color: white;
+}
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 14px;
+  color: var(--alabaster);
+}
+
+.countdown-timer #timer {
+  font-size: 18px;
+  color: var(--saffron);
+}
+
+/* Submit Button */
+.payment-form-submit-button {
+  background-color: var(--saffron);
+  color: var(--eerie-black);
+  border: none;
+  border-radius: 8px;
+  padding: 16px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  margin-top: 25px;
+}
+
+.payment-form-submit-button:hover {
+  background-color: var(--crimson-glow);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(245, 203, 92, 0.3);
+}
+
+.payment-form-submit-button i {
+  margin-right: 8px;
+}
+
+/* Payment Status Section */
+.payment-status-section {
+  margin-top: 20px;
+  padding: 16px;
+  background-color: #1a1a1a;
+  border: 1px dashed var(--platinum);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.payment-status-label {
+  font-size: 14px;
+  color: var(--alabaster);
+  font-family: "Enriqueta", serif;
+  font-weight: 600;
+}
+
+.payment-status-badge {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-family: "Enriqueta", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-unpaid {
+  background-color: rgba(245, 203, 92, 0.1); /* saffron glow */
+  color: var(--saffron);
+  border: 1px solid var(--saffron);
+}
+
+.status-paid {
+  background-color: rgba(0, 255, 128, 0.1);
+  color: #00ff80;
+  border: 1px solid #00ff80;
+}
+
+.status-failed {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #ff4d4d;
+  border: 1px solid #ff4d4d;
+}
+
+/* Flex layout for date + time */
+.payment-form-group-flex {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.payment-form-group-flex .payment-form-group {
+  flex: 1;
+}
+
+/* Make date and time inputs bigger and stylish */
+.large-input {
+  font-size: 18px;
+  padding: 18px 20px;
+  height: 58px;
+}
+
+/* Optional: enhance label for larger inputs */
+.large-input + .payment-form-label {
+  font-size: 20px;
+}
+
+.large-input:focus + .payment-form-label,
+.large-input:not(:placeholder-shown) + .payment-form-label {
+  top: 12%;
+  font-size: 13px;
+  color: var(--saffron);
+}
+
+/* Responsive */
+@media screen and (max-width: 767px) {
+  .payment-section {
+    padding: 24px 16px;
+  }
+
+  .payment-right {
+    width: 100%;
+  }
+
+  .payment-form-group-flex {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .modal-content {
+    width: 90%;
+  }
+}
