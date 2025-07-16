@@ -24,7 +24,7 @@ function renderMainLayout(callable $content, string $title, array $customJsCss =
 
     $content();
 
-    //if ($showHeaderFooter) {
-        //footer($customJsCss['js'] ?? []);
-    //}
+    if ($showHeaderFooter) {
+        footer($customJsCss['js'] ?? []);
+    }
 }
