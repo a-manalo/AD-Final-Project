@@ -17,6 +17,7 @@ $pdo = new PDO($dsn, $username, $password, [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
 ]);
 
+// gets CLI argument if available (ex. `composer postgresql:seed -- users`)
 $table = $argv[1] ?? 'all';
 
 switch ($table) {
@@ -24,31 +25,33 @@ switch ($table) {
         echo "Seeding users...\n";
         $data = require DUMMIES_PATH . '/users.staticData.php';
 
-            foreach ($data as $u) {
-                // Build dynamic insert query and param bindings
-                $columns = ['id', 'username', 'password'];
-                $placeholders = [':id', ':username', ':password'];
-                $params = [
-                    ':id'       => $u['id'],
-                    ':username' => $u['username'],
-                    ':password' => password_hash($u['password'], PASSWORD_DEFAULT),
-                ];
+        foreach ($data as $u) {
+            $columns = ['id', 'username', 'password'];
+            $placeholders = [':id', ':username', ':password'];
+            $params = [
+                ':id'       => $u['id'],
+                ':username' => $u['username'],
+                ':password' => password_hash($u['password'], PASSWORD_DEFAULT),
+            ];
 
-                // Optionally add email if provided
-                if (isset($u['email'])) {
-                    $columns[] = 'email';
-                    $placeholders[] = ':email';
-                    $params[':email'] = $u['email'];
-                }
-
-                // Optionally add role if provided
-                if (isset($u['role'])) {
-                    $columns[] = 'role';
-                    $placeholders[] = ':role';
-                    $params[':role'] = $u['role'];
+            if (isset($u['email'])) {
+                $columns[] = 'email';
+                $placeholders[] = ':email';
+                $params[':email'] = $u['email'];
             }
 
-            // Compose the dynamic query string
+            if (isset($u['role'])) {
+                $columns[] = 'role';
+                $placeholders[] = ':role';
+                $params[':role'] = $u['role'];
+            }
+
+            if (isset($u['seller_request_status'])) {
+                $columns[] = 'seller_request_status';
+                $placeholders[] = ':seller_request_status';
+                $params[':seller_request_status'] = $u['seller_request_status'];
+            }
+
             $query = sprintf(
                 "INSERT INTO users (%s) VALUES (%s)",
                 implode(', ', $columns),
@@ -104,19 +107,56 @@ switch ($table) {
     case 'payments':
         echo "Seeding payments...\n";
         $data = require DUMMIES_PATH . '/payments.staticData.php';
+
         $stmt = $pdo->prepare("
-            INSERT INTO payments (transaction_id, payment_method, amount_paid, payment_status)
-            VALUES (:transaction_id, :payment_method, :amount_paid, :payment_status)
+            INSERT INTO payments (
+                transaction_id, payment_method, amount_paid, payment_status,
+                meeting_date, meeting_time, contact_info, location,
+                agreed_amount, additional_notes
+            ) VALUES (
+                :transaction_id, :payment_method, :amount_paid, :payment_status,
+                :meeting_date, :meeting_time, :contact_info, :location,
+                :agreed_amount, :additional_notes
+            )
         ");
+
         foreach ($data as $p) {
             $stmt->execute([
-                ':transaction_id' => $p['transaction_id'],
-                ':payment_method' => $p['payment_method'],
-                ':amount_paid'    => $p['amount_paid'],
-                ':payment_status' => $p['payment_status'],
+                ':transaction_id'   => $p['transaction_id'],
+                ':payment_method'   => $p['payment_method'],
+                ':amount_paid'      => $p['amount_paid'],
+                ':payment_status'   => $p['payment_status'],
+
+                // These may be null
+                ':meeting_date'     => $p['meeting_date'] ?? null,
+                ':meeting_time'     => $p['meeting_time'] ?? null,
+                ':contact_info'     => $p['contact_info'] ?? null,
+                ':location'         => $p['location'] ?? null,
+                ':agreed_amount'    => $p['agreed_amount'] ?? null,
+                ':additional_notes' => $p['additional_notes'] ?? null,
             ]);
         }
+
         echo "Payments seeded.\n";
+        break;
+
+    case 'transaction_items':
+        echo "Seeding transaction_items...\n";
+        $data = require DUMMIES_PATH . '/transaction_items.staticData.php';
+        $stmt = $pdo->prepare("
+            INSERT INTO transaction_items (id, transaction_id, item_id, quantity, unit_price)
+            VALUES (:id, :transaction_id, :item_id, :quantity, :unit_price)
+        ");
+        foreach ($data as $ti) {
+            $stmt->execute([
+                ':id'             => $ti['id'],
+                ':transaction_id' => $ti['transaction_id'],
+                ':item_id'        => $ti['item_id'],
+                ':quantity'       => $ti['quantity'],
+                ':unit_price'     => $ti['price_each'],
+            ]);
+        }
+        echo "Transaction items seeded.\n";
         break;
 
     case 'all':
@@ -125,7 +165,6 @@ switch ($table) {
     $data = require DUMMIES_PATH . '/users.staticData.php';
 
     foreach ($data as $u) {
-        // Build dynamic insert query and param bindings
         $columns = ['id', 'username', 'password'];
         $placeholders = [':id', ':username', ':password'];
         $params = [
@@ -134,21 +173,24 @@ switch ($table) {
             ':password' => password_hash($u['password'], PASSWORD_DEFAULT),
         ];
 
-        // Optionally add email if provided
         if (isset($u['email'])) {
             $columns[] = 'email';
             $placeholders[] = ':email';
             $params[':email'] = $u['email'];
         }
 
-        // Optionally add role if provided
         if (isset($u['role'])) {
             $columns[] = 'role';
             $placeholders[] = ':role';
             $params[':role'] = $u['role'];
         }
 
-        // Compose the dynamic query string
+        if (isset($u['seller_request_status'])) {
+            $columns[] = 'seller_request_status';
+            $placeholders[] = ':seller_request_status';
+            $params[':seller_request_status'] = $u['seller_request_status'];
+        }
+
         $query = sprintf(
             "INSERT INTO users (%s) VALUES (%s)",
             implode(', ', $columns),
@@ -201,19 +243,55 @@ switch ($table) {
     // Seed payments
     echo "Seeding payments...\n";
     $data = require DUMMIES_PATH . '/payments.staticData.php';
+
     $stmt = $pdo->prepare("
-        INSERT INTO payments (transaction_id, payment_method, amount_paid, payment_status)
-        VALUES (:transaction_id, :payment_method, :amount_paid, :payment_status)
+        INSERT INTO payments (
+            transaction_id, payment_method, amount_paid, payment_status,
+            meeting_date, meeting_time, contact_info, location,
+            agreed_amount, additional_notes
+        ) VALUES (
+            :transaction_id, :payment_method, :amount_paid, :payment_status,
+            :meeting_date, :meeting_time, :contact_info, :location,
+            :agreed_amount, :additional_notes
+        )
     ");
+
     foreach ($data as $p) {
         $stmt->execute([
-            ':transaction_id' => $p['transaction_id'],
-            ':payment_method' => $p['payment_method'],
-            ':amount_paid'    => $p['amount_paid'],
-            ':payment_status' => $p['payment_status'],
+            ':transaction_id'   => $p['transaction_id'],
+            ':payment_method'   => $p['payment_method'],
+            ':amount_paid'      => $p['amount_paid'],
+            ':payment_status'   => $p['payment_status'],
+
+            // These may be null
+            ':meeting_date'     => $p['meeting_date'] ?? null,
+            ':meeting_time'     => $p['meeting_time'] ?? null,
+            ':contact_info'     => $p['contact_info'] ?? null,
+            ':location'         => $p['location'] ?? null,
+            ':agreed_amount'    => $p['agreed_amount'] ?? null,
+            ':additional_notes' => $p['additional_notes'] ?? null,
         ]);
     }
+
     echo "Payments seeded.\n";
+
+    // Seed transaction_items
+    echo "Seeding transaction_items...\n";
+    $data = require DUMMIES_PATH . '/transaction_items.staticData.php';
+    $stmt = $pdo->prepare("
+        INSERT INTO transaction_items (id, transaction_id, item_id, quantity, unit_price)
+        VALUES (:id, :transaction_id, :item_id, :quantity, :unit_price)
+    ");
+    foreach ($data as $ti) {
+        $stmt->execute([
+            ':id'             => $ti['id'],
+            ':transaction_id' => $ti['transaction_id'],
+            ':item_id'        => $ti['item_id'],
+            ':quantity'       => $ti['quantity'],
+            ':unit_price'     => $ti['price_each'],
+        ]);
+    }
+    echo "Transaction items seeded.\n";
     break;
 
     default:
