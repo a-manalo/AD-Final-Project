@@ -1,17 +1,24 @@
 <?php
+    declare(strict_types=1);
+
     require_once BASE_PATH . '/vendor/autoload.php';
     require_once UTILS_PATH . '/auth.util.php';
+    require_once UTILS_PATH . '/refresh_user.util.php';
+
     Auth::init();
 
-    $user = Auth::user();
-    if (!$user) {
+    if (!Auth::user()) {
         header('Location: /pages/Login/index.php');
         exit;
     }
 
-    require_once LAYOUTS_PATH . '/main.layout.php';
+    UserSessionRefresher::refresh();
+    $user = $_SESSION['user']; // Always use refreshed data
 
     $role = $user['role'];
+
+    require_once LAYOUTS_PATH . '/main.layout.php';
+
 
 renderMainLayout(function () use ($role, $user) {
     ?>
@@ -31,7 +38,7 @@ renderMainLayout(function () use ($role, $user) {
                 <?php endif; ?>
 
                 <?php if ($role === 'admin'): ?>
-                    <div class="sidebar-item" data-section="transactions">User Manager</div>
+                    <div class="sidebar-item" data-section="user-manager">User Manager</div>
                 <?php endif; ?>
             </div>
 
@@ -42,10 +49,6 @@ renderMainLayout(function () use ($role, $user) {
 
                 <div class="content-section" id="section-profile">
                     <div class="profile-details">
-                        <?php if (!empty($updateMessage)):?>
-                            <p style="color: var(--saffron); font-weight: bold;"><?= $updateMessage ?></p>
-                        <?php endif; ?>
-
                             <div class="avatar">
                                 <img src="/assets/img/Website_Logo.png" alt="User Avatar">
                             </div>
@@ -72,7 +75,17 @@ renderMainLayout(function () use ($role, $user) {
                             </div>
 
                             <div class="save-button-container">
-                                <a href="/self-destruct.php" class="save-button">Register as Seller</a>
+                                <?php if ($role === 'buyer'): ?>
+                                    <?php if (($user['seller_request_status'] ?? null) === 'pending'): ?>
+                                        <button class="save-button" disabled>Pending Request</button>
+                                    <?php elseif (($user['seller_request_status'] ?? null) === 'rejected'): ?>
+                                        <button class="save-button" disabled>Request Rejected</button>
+                                    <?php else: ?>
+                                        <form action="/handlers/request_seller.handler.php" method="POST" onsubmit="return confirm('Are you sure you want to register as a seller?');" style="display:inline;">
+                                            <button type="submit" class="save-button">Register as Seller</button>
+                                        </form>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                                 <form action="/handlers/delete_user.handler.php" method="POST" onsubmit="return confirm('Are you absolutely sure you want to delete your account? This cannot be undone.');" style="display: inline;">
                                 <button type="submit" class="save-button">Self-Destruct Profile</button>
                                 </form>
@@ -92,6 +105,41 @@ renderMainLayout(function () use ($role, $user) {
                     <div class="content-section hidden" id="section-transactions">
                         <h2>Your Transactions</h2>
                         <p>[Transactions content here]</p>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($role === 'admin'): ?>
+                    <div class="content-section hidden" id="section-user-manager">
+                        <?php require_once UTILS_PATH . '/seller_request.util.php'; ?>
+
+                        <?php if (count($requests) > 0): ?>
+                            <table class="table table-user-manager">
+                                <thead>
+                                    <tr><th>Username</th><th>Seller Role Request</th></tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($requests as $req): ?>
+                                        <tr>
+                                            <td><?= htmlspecialchars($req['username']) ?></td>
+                                            <td>
+                                                <form action="/handlers/seller_request.handler.php" method="POST" style="display:inline;">
+                                                    <input type="hidden" name="user_id" value="<?= $req['id'] ?>">
+                                                    <input type="hidden" name="action" value="approve">
+                                                    <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                                                </form>
+                                                <form action="/handlers/seller_request.handler.php" method="POST" style="display:inline;">
+                                                    <input type="hidden" name="user_id" value="<?= $req['id'] ?>">
+                                                    <input type="hidden" name="action" value="reject">
+                                                    <button type="submit" class="btn btn-danger btn-sm">Reject</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
+                        <?php else: ?>
+                            <p>No pending seller requests.</p>
+                        <?php endif; ?>
                     </div>
 
                     <div class="content-section hidden" id="section-listings">
@@ -134,7 +182,7 @@ renderMainLayout(function () use ($role, $user) {
             '/pages/user-profile/assets/css/user-profile.css',
             '/assets/css/main.css',
             '/assets/css/navbar.css',
-            // '/assets/css/footer.css,
+            // '/assets/css/footer.css',
             'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
         ],
         'js' => [
