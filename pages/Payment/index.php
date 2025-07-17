@@ -44,7 +44,7 @@ renderMainLayout(function () {
             </div>
 
             <!-- Form -->
-            <form action="/handlers/process_payment.php" method="POST">
+            <form action="/handlers/process_payment.handler.php" method="POST">
                 <input type="hidden" name="transaction_id" value="<?= htmlspecialchars($transactionId) ?>">
                 <input type="hidden" name="payment_method" id="selected-payment-method" value="Bitcoin"> 
 
