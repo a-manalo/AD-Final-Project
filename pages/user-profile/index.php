@@ -116,7 +116,7 @@ renderMainLayout(function () use ($role, $user, $userTransactions, $userListings
                                         <p><strong>Order ID:</strong> <?= htmlspecialchars($txn['id']) ?></p>
                                         <p><strong>Total Amount:</strong> ₱<?= number_format((float)$txn['total_amount'], 2) ?></p>
                                         <p><strong>Status:</strong> <?= htmlspecialchars($txn['status']) ?></p>
-                                        <p><strong>Date:</strong> <?= htmlspecialchars(date('F j, Y g:i A', strtotime($txn['created_at']))) ?></p>
+                                        <p><strong>Date:</strong> <?= htmlspecialchars(date('F j, Y', strtotime($txn['created_at']))) ?></p>
                                     </div>
                                     <hr>
                                 <?php endforeach; ?>
