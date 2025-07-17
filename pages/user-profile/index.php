@@ -21,6 +21,7 @@ $role = $user['role'];
 // Prepare data depending on role
 $userTransactions = [];
 $userListings = [];
+$sellerTransactions = [];
 
 if ($role === 'buyer') {
     $userTransactions = getBuyerOrders($user['id']);
@@ -28,12 +29,13 @@ if ($role === 'buyer') {
 
 if ($role === 'seller') {
     $userListings = getItemsBySeller($user['username']);
+    $sellerTransactions = getSellerTransactions($user['username']);
 }
 
 // Render the layout
 require_once LAYOUTS_PATH . '/main.layout.php';
 
-renderMainLayout(function () use ($role, $user, $userTransactions, $userListings) {
+renderMainLayout(function () use ($role, $user, $userTransactions, $userListings, $sellerTransactions) {
     ?>
 
     <div class="black-market-profile-page">
@@ -47,6 +49,7 @@ renderMainLayout(function () use ($role, $user, $userTransactions, $userListings
 
                 <?php if ($role === 'seller'): ?>
                     <div class="sidebar-item" data-section="listings">Listings (<?= count($userListings) ?>)</div>
+                    <div class="sidebar-item" data-section="transactions">Transactions (<?= count($sellerTransactions) ?>)</div>
                 <?php endif; ?>
 
                 <?php if ($role === 'admin'): ?>
@@ -151,6 +154,67 @@ renderMainLayout(function () use ($role, $user, $userTransactions, $userListings
                             </div>
                         <?php else: ?>
                             <p>You have no listings yet.</p>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($role === 'seller'): ?>
+                    <div class="content-section hidden" id="section-transactions">
+                        <h2>Your Transactions</h2>
+                        <?php if (!empty($sellerTransactions)): ?>
+                            <div class="transactions-list">
+                                <?php foreach ($sellerTransactions as $txn): ?>
+                                    <div class="transaction-card">
+                                        <div class="transaction-header">
+                                            <h4>Order #<?= htmlspecialchars(substr($txn['transaction_id'], 0, 8)) ?></h4>
+                                            <span class="status-badge status-<?= strtolower($txn['transaction_status']) ?>">
+                                                <?= htmlspecialchars($txn['transaction_status']) ?>
+                                            </span>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <p><strong>Item:</strong> <?= htmlspecialchars($txn['item_name']) ?></p>
+                                            <p><strong>Quantity:</strong> <?= (int)$txn['quantity'] ?></p>
+                                            <p><strong>Unit Price:</strong> ₱<?= number_format((float)$txn['unit_price'], 2) ?></p>
+                                            <p><strong>Subtotal:</strong> ₱<?= number_format((float)$txn['subtotal'], 2) ?></p>
+                                            <p><strong>Total Order:</strong> ₱<?= number_format((float)$txn['total_amount'], 2) ?></p>
+                                            <p><strong>Buyer:</strong> <?= htmlspecialchars($txn['buyer_username']) ?></p>
+                                            <p><strong>Date:</strong> <?= htmlspecialchars(date('F j, Y', strtotime($txn['transaction_date']))) ?></p>
+                                            
+                                            <?php if ($txn['payment_method']): ?>
+                                                <div class="payment-info">
+                                                    <h5>Payment Details</h5>
+                                                    <p><strong>Method:</strong> <?= htmlspecialchars($txn['payment_method']) ?></p>
+                                                    <p><strong>Status:</strong> <?= htmlspecialchars($txn['payment_status']) ?></p>
+                                                    
+                                                    <?php if ($txn['payment_method'] === 'In-Person'): ?>
+                                                        <?php if ($txn['meeting_date']): ?>
+                                                            <p><strong>Meeting Date:</strong> <?= htmlspecialchars(date('F j, Y', strtotime($txn['meeting_date']))) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['meeting_time']): ?>
+                                                            <p><strong>Meeting Time:</strong> <?= htmlspecialchars($txn['meeting_time']) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['location']): ?>
+                                                            <p><strong>Location:</strong> <?= htmlspecialchars($txn['location']) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['contact_info']): ?>
+                                                            <p><strong>Contact:</strong> <?= htmlspecialchars($txn['contact_info']) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['agreed_amount']): ?>
+                                                            <p><strong>Agreed Amount:</strong> ₱<?= number_format((float)$txn['agreed_amount'], 2) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['additional_notes']): ?>
+                                                            <p><strong>Notes:</strong> <?= htmlspecialchars($txn['additional_notes']) ?></p>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
+                            <p>You have no transactions yet.</p>
                         <?php endif; ?>
                     </div>
                 <?php endif; ?>
