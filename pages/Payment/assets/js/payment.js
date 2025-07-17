@@ -43,7 +43,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Set initial visibility based on default selection
-  const defaultSelected = document.querySelector('input[name="payment_method"]:checked');
+  const defaultSelected = document.querySelector(
+    'input[name="payment_method"]:checked'
+  );
   if (defaultSelected) showFields(defaultSelected.value);
 
   // Handle copy to clipboard
@@ -61,5 +63,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 2000);
       });
     });
+  }
+});
+
+document.querySelector("form").addEventListener("submit", function (e) {
+  const transactionId = document.querySelector(
+    'input[name="transaction_id"]'
+  ).value;
+  if (!transactionId) {
+    e.preventDefault();
+    alert("Transaction ID is missing. Please go back to the order page.");
   }
 });
