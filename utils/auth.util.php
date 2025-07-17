@@ -64,6 +64,7 @@ class Auth
             'username' => $user['username'],
             'role' => $user['role'],
             'email' => $user['email'],
+            'seller_request_status' => $user['seller_request_status'] ?? null,
             'created_at' => $user['created_at'],
         ];
         error_log("[Auth::login] Login successful for user_id={$user['id']}");

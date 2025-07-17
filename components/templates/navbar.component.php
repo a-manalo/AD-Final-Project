@@ -11,11 +11,11 @@ function navHeader(?array $user): void
 
     <nav class="navbar">
       <div class="container">
-        <a href="/" class="logo">
-          <img src="/assets/img/website_logo.png" alt="">
+        <a href="/index.php" class="logo">
+          <img src="/assets/img/Website_Logo.png" alt="">
         </a>
         <div class="brand-text">
-          <a href="/" class="website-name">The Forbidden Codex</a>
+          <a href="/index.php" class="website-name">The Forbidden Codex</a>
           <p class="company-name">Cottonee Inc.</p>
         </div>
 
@@ -27,7 +27,7 @@ function navHeader(?array $user): void
 
         <div class="navbar-menu" id="navbar-menu">
           <ul class="navbar-links">
-            <li><a href="/">Home</a></li>
+            <li><a href="/index.php">Home</a></li>
             <li><a href="/pages/product/index.php">Products</a></li>
             <?php if ($user): ?>
               <li><a href="/pages/user-profile/index.php">Account</a></li>

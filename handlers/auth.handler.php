@@ -31,10 +31,8 @@ if ($action === 'login' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 
         switch ($user['role']) {
         case 'admin':
-            header('Location: /pages/admin-profile/index.php');
-            break;
         case 'seller':
-            header('Location: /pages/seller-profile/index.php');
+            header('Location: /pages/user-profile/index.php');
             break;
         default:
             header('Location: /index.php');

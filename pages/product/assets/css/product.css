@@ -61,7 +61,7 @@ body {
 
 .product-card {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
+  flex-direction: column;
   justify-content: space-between;
   background-color: #fff;
   border-radius: 12px;
@@ -70,7 +70,7 @@ body {
   text-align: center;
   padding: 1rem;
   border: 3px solid var(--saffron);
-  height: 100%; /* Ensure it stretches to match siblings in grid */
+  height: 100%;
 }
 .product-card img {
   width: 100%;
@@ -130,12 +130,12 @@ body {
   text-decoration: none;
   font-size: 25px;
   color: var(--saffron);
-  display: block; /* changed from inline-block */
-  width: 100%; /* make it full width of the parent */
+  display: block;
+  width: 100%;
   padding: 10px 15px;
   border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
-  box-sizing: border-box; /* ensures padding doesn't overflow */
+  box-sizing: border-box;
 }
 
 .filter-group a:hover {
@@ -162,9 +162,9 @@ h3 {
 }
 
 .product-price {
-  border-bottom: 2px solid var(--saffron); /* or any color you want */
-  padding-bottom: 2px; /* optional spacing */
-  display: inline-block; /* so border only spans text width */
+  border-bottom: 2px solid var(--saffron);
+  padding-bottom: 2px;
+  display: inline-block;
 }
 
 .product-meta {
@@ -199,9 +199,9 @@ h3 {
 }
 
 .product-price {
-  border-bottom: 2px solid var(--saffron); /* or any color you want */
-  padding-bottom: 2px; /* optional spacing */
-  display: inline-block; /* so border only spans text width */
+  border-bottom: 2px solid var(--saffron);
+  padding-bottom: 2px;
+  display: inline-block;
 }
 
 .category-heading {

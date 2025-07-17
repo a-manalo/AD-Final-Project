@@ -4,7 +4,8 @@ CREATE TABLE IF NOT EXISTS items (
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL DEFAULT 0,
+    seller VARCHAR(100),
     category VARCHAR(100),
-    image_url TEXT,   
+    image_url TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

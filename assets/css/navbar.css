@@ -58,7 +58,7 @@
 .navbar {
   position: relative;
   z-index: 1000;
-  margin-top: 20px; /* Add space for the fixed disclaimer */
+  margin-top: 20px;
   width: 100%;
 }
 

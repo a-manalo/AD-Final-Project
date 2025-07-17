@@ -32,9 +32,8 @@
   --saffron: #f5cb5cff;
   --eerie-black: #242423ff;
   --jet: #333533ff;
-  /* Added missing variables used in your CSS */
-  --crimson-glow: #a25772; /* This color was used but not defined in :root */
-  --glow: 0 0 8px rgba(245, 203, 92, 0.5); /* This variable was used but not defined in :root */
+  --crimson-glow: #a25772;
+  --glow: 0 0 8px rgba(245, 203, 92, 0.5);
 }
 
 * {
@@ -115,35 +114,31 @@ body {
   font-size: 20px;
 }
 
-/* Consolidated .payment-method */
 .payment-method {
   display: flex;
   margin-bottom: 30px;
   flex-wrap: wrap;
-  justify-content: flex-start; /* Aligns items to the LEFT */
-  gap: 12px; /* For consistent spacing between items */
+  justify-content: flex-start;
+  gap: 12px;
 }
 
-/* Consolidated .payment-method label */
 .payment-method label {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  flex: 0 0 auto; /* Crucial: Prevents labels from stretching */
-  min-width: 120px; /* Ensures a minimum width for each item */
+  flex: 0 0 auto;
+  min-width: 120px;
   position: relative;
 }
 
-/* Consolidated .payment-method input[type="radio"] */
 .payment-method input[type="radio"] {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  display: none; /* Ensure it's hidden */
+  display: none;
 }
 
-/* Consolidated .payment-method-item */
 .payment-method-item {
   width: 80px;
   height: 80px;
@@ -158,14 +153,12 @@ body {
   align-items: center;
 }
 
-/* Consolidated checked state for .payment-method-item */
 .payment-method input[type="radio"]:checked + .payment-method-item {
   border-color: var(--saffron);
   background-color: #fff;
   box-shadow: var(--glow);
 }
 
-/* Consolidated pseudo-element for checked state (from previous fix) */
 .payment-method input[type="radio"]:checked + .payment-method-item::before {
   content: "";
   position: absolute;
@@ -181,34 +174,29 @@ body {
   background-repeat: no-repeat;
 }
 
-/* Consolidated .payment-method i (icon styling) */
 .payment-method-item i {
-  /* Changed to be more specific for clarity */
-  font-size: 40px; /* Bigger icon size */
+  font-size: 40px;
   color: var(--saffron);
   display: block;
 }
-/* This specific rule was overriding the more general payment-method i above */
+
 .payment-method input[type="radio"]:checked + .payment-method-item i {
   color: var(--saffron);
 }
 
-/* Consolidated .payment-method span (text below icon) */
 .payment-method span {
   display: block;
   margin-top: 10px;
   font-weight: 500;
-  color: #495057; /* Default color */
+  color: #495057;
   text-align: center;
   font-size: 12px;
 }
 
-/* Style for span when its associated radio is checked */
 .payment-method input[type="radio"]:checked ~ span {
   color: var(--saffron);
 }
 
-/* Hide payment method fields by default */
 .payment-method-fields {
   transition: opacity 0.3s ease, max-height 0.3s ease;
   opacity: 1;
@@ -421,7 +409,6 @@ body {
   border: 1px solid #ff4d4d;
 }
 
-/* Flex layout for date + time */
 .payment-form-group-flex {
   display: flex;
   gap: 20px;
@@ -432,14 +419,12 @@ body {
   flex: 1;
 }
 
-/* Make date and time inputs bigger and stylish */
 .large-input {
   font-size: 18px;
   padding: 18px 20px;
   height: 58px;
 }
 
-/* Optional: enhance label for larger inputs */
 .large-input + .payment-form-label {
   font-size: 20px;
 }

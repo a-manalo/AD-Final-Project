@@ -1,26 +1,41 @@
 <?php
-    declare(strict_types=1);
+declare(strict_types=1);
 
-    require_once BASE_PATH . '/vendor/autoload.php';
-    require_once UTILS_PATH . '/auth.util.php';
-    require_once UTILS_PATH . '/refresh_user.util.php';
+require_once BASE_PATH . '/vendor/autoload.php';
+require_once UTILS_PATH . '/auth.util.php';
+require_once UTILS_PATH . '/refresh_user.util.php';
+require_once UTILS_PATH . '/orders.util.php';
 
-    Auth::init();
+Auth::init();
 
-    if (!Auth::user()) {
-        header('Location: /pages/Login/index.php');
-        exit;
-    }
+if (!Auth::user()) {
+    header('Location: /pages/Login/index.php');
+    exit;
+}
 
-    UserSessionRefresher::refresh();
-    $user = $_SESSION['user']; // Always use refreshed data
+// Refresh session and extract user data
+UserSessionRefresher::refresh();
+$user = $_SESSION['user'];
+$role = $user['role'];
 
-    $role = $user['role'];
+// Prepare data depending on role
+$userTransactions = [];
+$userListings = [];
+$sellerTransactions = [];
 
-    require_once LAYOUTS_PATH . '/main.layout.php';
+if ($role === 'buyer') {
+    $userTransactions = getBuyerOrders($user['id']);
+}
 
+if ($role === 'seller') {
+    $userListings = getItemsBySeller($user['username']);
+    $sellerTransactions = getSellerTransactions($user['username']);
+}
 
-renderMainLayout(function () use ($role, $user) {
+// Render the layout
+require_once LAYOUTS_PATH . '/main.layout.php';
+
+renderMainLayout(function () use ($role, $user, $userTransactions, $userListings, $sellerTransactions) {
     ?>
 
     <div class="black-market-profile-page">
@@ -29,12 +44,12 @@ renderMainLayout(function () use ($role, $user) {
                 <div class="sidebar-item active" data-section="profile">Profile</div>
 
                 <?php if ($role === 'buyer'): ?>
-                    <div class="sidebar-item" data-section="orders">Orders</div>
+                    <div class="sidebar-item" data-section="orders">Orders (<?= count($userTransactions) ?>)</div>
                 <?php endif; ?>
 
                 <?php if ($role === 'seller'): ?>
-                    <div class="sidebar-item" data-section="transactions">Transactions</div>
-                    <div class="sidebar-item" data-section="listings">Listings</div>
+                    <div class="sidebar-item" data-section="listings">Listings (<?= count($userListings) ?>)</div>
+                    <div class="sidebar-item" data-section="transactions">Transactions (<?= count($sellerTransactions) ?>)</div>
                 <?php endif; ?>
 
                 <?php if ($role === 'admin'): ?>
@@ -97,14 +112,110 @@ renderMainLayout(function () use ($role, $user) {
                 <?php if ($role === 'buyer'): ?>
                     <div class="content-section hidden" id="section-orders">
                         <h2>Your Orders</h2>
-                        <p>[Orders content here]</p>
+                        <?php if (!empty($userTransactions)): ?>
+                            <div class="orders-list">
+                                <?php foreach ($userTransactions as $txn): ?>
+                                    <div class="order-card">
+                                        <p><strong>Order ID:</strong> <?= htmlspecialchars($txn['id']) ?></p>
+                                        <p><strong>Total Amount:</strong> ₱<?= number_format((float)$txn['total_amount'], 2) ?></p>
+                                        <p><strong>Status:</strong> <?= htmlspecialchars($txn['status']) ?></p>
+                                        <p><strong>Date:</strong> <?= htmlspecialchars(date('F j, Y', strtotime($txn['created_at']))) ?></p>
+                                    </div>
+                                    <hr>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
+                            <p>You have no orders yet.</p>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($role === 'seller'): ?>
+                    <div class="content-section hidden" id="section-listings">
+                        <h2>Your Listings</h2>
+
+                        <?php if (!empty($userListings)): ?>
+                            <div class="listings-grid">
+                                <?php foreach ($userListings as $item): ?>
+                                    <div class="listing-card">
+                                        <img src="<?= htmlspecialchars($item['image_url']) ?>" alt="<?= htmlspecialchars($item['name']) ?>" class="listing-img">
+                                        <h4><?= htmlspecialchars($item['name']) ?></h4>
+                                        <p><?= htmlspecialchars($item['description']) ?></p>
+                                        <p><strong>₱<?= number_format((float)$item['price'], 2) ?></strong></p>
+                                        <p>Stock: <?= (int)$item['stock'] ?></p>
+                                        <p>Category: <?= htmlspecialchars($item['category']) ?></p>
+                                        <p><small>Listed on <?= date('F j, Y', strtotime($item['created_at'])) ?></small></p>
+                                        <form action="/handlers/remove_item.handler.php" method="POST" onsubmit="return confirm('Are you sure you want to remove this item from your listings?');" style="margin-top: 0.5rem;">
+                                            <input type="hidden" name="item_id" value="<?= htmlspecialchars($item['id']) ?>">
+                                            <button type="submit" class="delete-btn">Delete</button>
+                                        </form>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
+                            <p>You have no listings yet.</p>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
 
                 <?php if ($role === 'seller'): ?>
                     <div class="content-section hidden" id="section-transactions">
                         <h2>Your Transactions</h2>
-                        <p>[Transactions content here]</p>
+                        <?php if (!empty($sellerTransactions)): ?>
+                            <div class="transactions-list">
+                                <?php foreach ($sellerTransactions as $txn): ?>
+                                    <div class="transaction-card">
+                                        <div class="transaction-header">
+                                            <h4>Order #<?= htmlspecialchars(substr($txn['transaction_id'], 0, 8)) ?></h4>
+                                            <span class="status-badge status-<?= strtolower($txn['transaction_status']) ?>">
+                                                <?= htmlspecialchars($txn['transaction_status']) ?>
+                                            </span>
+                                        </div>
+                                        <div class="transaction-details">
+                                            <p><strong>Item:</strong> <?= htmlspecialchars($txn['item_name']) ?></p>
+                                            <p><strong>Quantity:</strong> <?= (int)$txn['quantity'] ?></p>
+                                            <p><strong>Unit Price:</strong> ₱<?= number_format((float)$txn['unit_price'], 2) ?></p>
+                                            <p><strong>Subtotal:</strong> ₱<?= number_format((float)$txn['subtotal'], 2) ?></p>
+                                            <p><strong>Total Order:</strong> ₱<?= number_format((float)$txn['total_amount'], 2) ?></p>
+                                            <p><strong>Buyer:</strong> <?= htmlspecialchars($txn['buyer_username']) ?></p>
+                                            <p><strong>Date:</strong> <?= htmlspecialchars(date('F j, Y', strtotime($txn['transaction_date']))) ?></p>
+                                            
+                                            <?php if ($txn['payment_method']): ?>
+                                                <div class="payment-info">
+                                                    <h5>Payment Details</h5>
+                                                    <p><strong>Method:</strong> <?= htmlspecialchars($txn['payment_method']) ?></p>
+                                                    <p><strong>Status:</strong> <?= htmlspecialchars($txn['payment_status']) ?></p>
+                                                    
+                                                    <?php if ($txn['payment_method'] === 'In-Person'): ?>
+                                                        <?php if ($txn['meeting_date']): ?>
+                                                            <p><strong>Meeting Date:</strong> <?= htmlspecialchars(date('F j, Y', strtotime($txn['meeting_date']))) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['meeting_time']): ?>
+                                                            <p><strong>Meeting Time:</strong> <?= htmlspecialchars($txn['meeting_time']) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['location']): ?>
+                                                            <p><strong>Location:</strong> <?= htmlspecialchars($txn['location']) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['contact_info']): ?>
+                                                            <p><strong>Contact:</strong> <?= htmlspecialchars($txn['contact_info']) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['agreed_amount']): ?>
+                                                            <p><strong>Agreed Amount:</strong> ₱<?= number_format((float)$txn['agreed_amount'], 2) ?></p>
+                                                        <?php endif; ?>
+                                                        <?php if ($txn['additional_notes']): ?>
+                                                            <p><strong>Notes:</strong> <?= htmlspecialchars($txn['additional_notes']) ?></p>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
+                            <p>You have no transactions yet.</p>
+                        <?php endif; ?>
                     </div>
                 <?php endif; ?>
 
@@ -141,35 +252,6 @@ renderMainLayout(function () use ($role, $user) {
                             <p>No pending seller requests.</p>
                         <?php endif; ?>
                     </div>
-
-                    <div class="content-section hidden" id="section-listings">
-                        <h2>Your Listings</h2>
-                        <div class="seller-listings">
-                            <div class="listings-header">
-                                <button class="add-product-btn">+ Add New Product</button>
-                            </div>
-
-                            <?php if (!empty($userProducts)): ?>
-                                <div class="listings-grid">
-                                    <?php foreach ($userProducts as $product): ?>
-                                        <div class="listing-card">
-                                            <img src="<?= htmlspecialchars($product['image_url']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" class="listing-image">
-                                            <h3><?= htmlspecialchars($product['name']) ?></h3>
-                                            <p class="price">₱<?= number_format($product['price'], 2) ?></p>
-                                            <p class="category">Category: <?= ucfirst($product['category']) ?></p>
-                                            <p class="description"><?= htmlspecialchars($product['description']) ?></p>
-                                            <div class="actions">
-                                                <button class="edit-btn">Edit</button>
-                                                <button class="delete-btn">Remove</button>
-                                            </div>
-                                        </div>
-                                    <?php endforeach; ?>
-                                </div>
-                            <?php else: ?>
-                                <p>You haven’t listed any products yet.</p>
-                            <?php endif; ?>
-                        </div>
-                    </div>
                 <?php endif; ?>
             </div>
         </div>
@@ -182,7 +264,7 @@ renderMainLayout(function () use ($role, $user) {
             '/pages/user-profile/assets/css/user-profile.css',
             '/assets/css/main.css',
             '/assets/css/navbar.css',
-            // '/assets/css/footer.css',
+            '/assets/css/footer.css',
             'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css'
         ],
         'js' => [

@@ -16,6 +16,28 @@
       <p class="product-seller">Seller: <?= htmlspecialchars($product['seller']) ?></p>
     <?php endif; ?>
   </div>
-  <a href="/pages/Payment/index.php"class="blackmarket-btn">Buy</a>
+  <?php
+    require_once UTILS_PATH . '/auth.util.php';
+    $user = Auth::user();
+    if ($user) {
+      if ($user['role'] === 'buyer') {
+  ?>
+    <form action="/handlers/buy.handler.php" method="POST" style="display: inline;">
+      <input type="hidden" name="item_id" value="<?= htmlspecialchars($product['id']) ?>">
+      <input type="hidden" name="quantity" value="1">
+      <button type="submit" class="blackmarket-btn">Buy</button>
+    </form>
+  <?php
+      } elseif ($user['role'] === 'seller') {
+  ?>
+    <form action="/handlers/sell.handler.php" method="POST" style="display: inline;">
+      <input type="hidden" name="item_id" value="<?= htmlspecialchars($product['id']) ?>">
+      <input type="hidden" name="quantity" value="1">
+      <button type="submit" class="blackmarket-btn">Sell</button>
+    </form>
+  <?php
+      }
+    }
+  ?>
 </div>
 <?php endif; ?>

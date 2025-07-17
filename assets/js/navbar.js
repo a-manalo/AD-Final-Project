@@ -1,4 +1,3 @@
-// Toggle mobile menu
 const hamburgerBtn = document.getElementById("hamburger-btn");
 const navbarMenu = document.getElementById("navbar-menu");
 
