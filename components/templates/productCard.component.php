@@ -16,6 +16,10 @@
       <p class="product-seller">Seller: <?= htmlspecialchars($product['seller']) ?></p>
     <?php endif; ?>
   </div>
-  <a href="/pages/Payment/index.php"class="blackmarket-btn">Buy</a>
+  <form action="/handlers/buy.handler.php" method="POST" style="display: inline;">
+    <input type="hidden" name="item_id" value="<?= htmlspecialchars($product['id']) ?>">
+    <input type="hidden" name="quantity" value="1">
+    <button type="submit" class="blackmarket-btn">Buy</button>
+  </form>
 </div>
 <?php endif; ?>

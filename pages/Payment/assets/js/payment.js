@@ -5,31 +5,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const bitcoinFields = document.getElementById("bitcoin-fields");
   const inPersonFields = document.getElementById("in-person-fields");
 
+  // Hide both field sections initially
   function hideAll() {
     bitcoinFields.classList.add("hidden");
     inPersonFields.classList.add("hidden");
+
+    // Remove required attributes from all payment inputs
+    bitcoinFields.querySelectorAll("input, textarea").forEach((el) => {
+      el.required = false;
+    });
+    inPersonFields.querySelectorAll("input, textarea").forEach((el) => {
+      el.required = false;
+    });
   }
 
+  // Show appropriate fields and apply `required` only to visible inputs
   function showFields(method) {
     hideAll();
     hiddenInput.value = method;
 
     if (method === "Bitcoin") {
       bitcoinFields.classList.remove("hidden");
+      bitcoinFields.querySelectorAll("input, textarea").forEach((el) => {
+        el.required = true;
+      });
     } else if (method === "In Person") {
       inPersonFields.classList.remove("hidden");
+      inPersonFields.querySelectorAll("input, textarea").forEach((el) => {
+        el.required = true;
+      });
     }
   }
 
+  // Attach event listener to each radio button
   radios.forEach((r) => {
     r.addEventListener("change", () => showFields(r.value));
   });
 
-  const defaultSelected = document.querySelector(
-    'input[name="payment_method"]:checked'
-  );
+  // Set initial visibility based on default selection
+  const defaultSelected = document.querySelector('input[name="payment_method"]:checked');
   if (defaultSelected) showFields(defaultSelected.value);
 
+  // Handle copy to clipboard
   const copyBtn = document.querySelector(".copy-button");
   if (copyBtn) {
     copyBtn.addEventListener("click", function () {
