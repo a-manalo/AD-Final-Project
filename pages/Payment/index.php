@@ -2,7 +2,7 @@
 require_once LAYOUTS_PATH . '/main.layout.php';
 
 renderMainLayout(function () {
-    $transactionId = $_GET['transaction_id'] ?? ''; // Transaction UUID
+    $transactionId = $_GET['transaction_id'] ?? '';
     $amountDue = $_GET['amount'] ?? '0.00';
 ?>
 <section class="payment-section">
@@ -46,7 +46,7 @@ renderMainLayout(function () {
             <!-- Form -->
             <form action="/handlers/process_payment.php" method="POST">
                 <input type="hidden" name="transaction_id" value="<?= htmlspecialchars($transactionId) ?>">
-                <input type="hidden" name="payment_method" id="selected-payment-method" value="Bitcoin"> <!--Purpose: Tells what payment was chosen and which order is the payment for. If remove the copy address and amount payment won't show-->
+                <input type="hidden" name="payment_method" id="selected-payment-method" value="Bitcoin"> 
 
                 <!--General Fields-->
                 <div class="payment-form-group-flex">
