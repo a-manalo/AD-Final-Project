@@ -45,8 +45,9 @@ renderMainLayout(function () {
 
             <!-- Form -->
             <form action="/handlers/process_payment.handler.php" method="POST">
+                <!-- Hidden critical fields -->
                 <input type="hidden" name="transaction_id" value="<?= htmlspecialchars($transactionId) ?>">
-                <input type="hidden" name="payment_method" id="selected-payment-method" value="Bitcoin"> 
+                <input type="hidden" name="payment_method" id="selected-payment-method" value="Bitcoin">
 
                 <!--General Fields-->
                 <div class="payment-form-group-flex">
@@ -68,9 +69,9 @@ renderMainLayout(function () {
                 <!-- Bitcoin Fields -->
                 <div id="bitcoin-fields" class="payment-method-fields">
                     <div class="payment-form-group">
-                    <input type="text" id="meeting-location" name="meeting_location" class="payment-form-control" placeholder=" " required>
-                    <label for="meeting-location" class="payment-form-label payment-form-label-required">Preferred Drop Off Location</label>
-                </div>
+                        <input type="text" name="meeting_location" class="payment-form-control" placeholder=" " required>
+                        <label class="payment-form-label payment-form-label-required">Preferred Drop Off Location</label>
+                    </div>
                     <div class="copy-address-section">
                         <p class="enriqueta-semibold">Send ₱<?= htmlspecialchars($amountDue) ?> worth of Bitcoin to:</p>
                         <code id="payment-address">bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</code>
@@ -82,16 +83,16 @@ renderMainLayout(function () {
                 <!-- In-Person Fields -->
                 <div id="in-person-fields" class="payment-method-fields hidden">
                     <div class="payment-form-group">
-                        <input type="text" id="meeting-location" name="meeting_location" class="payment-form-control" placeholder=" " required>
-                        <label for="meeting-location" class="payment-form-label payment-form-label-required">Preferred Meeting Location</label>
+                        <input type="text" name="meeting_location" class="payment-form-control" placeholder=" ">
+                        <label class="payment-form-label payment-form-label-required">Preferred Meeting Location</label>
                     </div>
                     <div class="payment-form-group">
-                        <input type="number" step="0.01" min="0" id="inperson-amount-paid" name="amount_paid" class="payment-form-control" placeholder=" " required>
-                        <label for="inperson-amount-paid" class="payment-form-label payment-form-label-required">Agreed Amount (₱)</label>
+                        <input type="number" step="0.01" min="0" name="amount_paid" class="payment-form-control" placeholder=" ">
+                        <label class="payment-form-label payment-form-label-required">Agreed Amount (₱)</label>
                     </div>
                     <div class="payment-form-group">
-                        <textarea id="meeting-notes" name="meeting_notes" class="payment-form-control" rows="3" placeholder=" "></textarea>
-                        <label for="meeting-notes" class="payment-form-label">Additional Notes</label>
+                        <textarea name="meeting_notes" class="payment-form-control" rows="3" placeholder=" "></textarea>
+                        <label class="payment-form-label">Additional Notes</label>
                     </div>
                 </div>
 
@@ -101,9 +102,7 @@ renderMainLayout(function () {
                     <span class="payment-status-badge status-unpaid">Unpaid</span>
                 </div>
 
-                <button type="submit" class="payment-form-submit-button enriqueta-semibold">
-                    <i class="fas fa-lock"></i> Confirm Transaction
-                </button>
+                <button type="submit" class="payment-form-submit-button enriqueta-semibold">Confirm Transaction</button>
             </form>
         </div>
     </div>
