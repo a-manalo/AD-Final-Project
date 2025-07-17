@@ -41,7 +41,7 @@ try {
 
     if ($deleted) {
         session_destroy();
-        header('Location: /pages/Goodbye/index.php');
+        header('Location: /index.php');
         exit;
     } else {
         $_SESSION['account_errors'] = ['Failed to delete your account. Please try again.'];
