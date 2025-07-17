@@ -9,4 +9,4 @@ if (php_sapi_name() === 'cli-server') {
     }
 }
 
-require ERRORS_PATH . '/404.error.php';
+require BASE_PATH . '/index.php';
