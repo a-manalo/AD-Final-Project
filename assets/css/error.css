@@ -32,7 +32,6 @@
   --saffron: #f5cb5cff;
   --eerie-black: #242423ff;
   --jet: #333533ff;
-  /* Added custom variables from previous iterations if they were missing */
   --crimson-glow: #a25772;
   --glow: 0 0 8px rgba(245, 203, 92, 0.5);
 }
