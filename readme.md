@@ -63,10 +63,10 @@ The Forbidden Codex is a mysterious black market platform set in a mythology the
 - Products Page
   - Product Categories
     - Product Details
-    - Buy Product
+    - Buy Product for Buyers
+    - Sell Product for Sellers
 - Payment Page
-  - Payment form submission
-  - Database insertion
+  - Payment Form Submission
 - Account Page
   - User Profile
   - Dynamic Sidebars Based on Role
@@ -161,6 +161,10 @@ AD-Final-Project
 |   └─ delete_user.handler.php
 |   └─ request_seller.handler.php
 |   └─ seller_request.handler.php
+|   └─ buy.handler.php
+|   └─ process_payment.handler.php
+|   └─ remove_item.handler.php
+|   └─ sell.handler.php
 └─ layout
 |   └─ main.layout.php
 └─ pages
@@ -229,6 +233,9 @@ AD-Final-Project
 |   └─ signup.util.php
 |   └─ delete_user.util.php
 |   └─ refresh_user.util.php
+|   └─ process_payment.util.php
+|   └─ orders.util.php
+|   └─ seller_request.util.php
 └─ vendor
 └─ .dockerignore
 └─ .gitignore
