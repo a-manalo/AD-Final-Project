@@ -47,15 +47,15 @@ body {
   align-items: center;
   justify-content: center;
   background: var(--eerie-black);
-  padding: 60px; /* increased from 30px */
+  padding: 60px; 
 }
 
 .container {
   position: relative;
-  max-width: 1000px; /* increased from 850px */
+  max-width: 1000px; 
   width: 100%;
   background: #fff;
-  padding: 60px 40px; /* increased padding */
+  padding: 60px 40px; 
   perspective: 2700px;
 }
 
@@ -123,7 +123,7 @@ body {
 
 .cover .text .text-1 {
   z-index: 20;
-  font-size: 32px; /* increased from 26px */
+  font-size: 32px; 
   font-weight: 600;
   color: #fff;
   text-align: center;
@@ -131,7 +131,7 @@ body {
 
 .cover .text .text-2 {
   z-index: 20;
-  font-size: 18px; /* increased from 15px */
+  font-size: 18px; 
   font-weight: 500;
   color: #fff;
   text-align: center;
@@ -156,7 +156,7 @@ body {
 
 .forms .form-content .title {
   position: relative;
-  font-size: 28px; /* increased from 24px */
+  font-size: 28px; 
   font-weight: 500;
   color: #333;
 }
@@ -182,7 +182,7 @@ body {
 .forms .form-content .input-box {
   display: flex;
   align-items: center;
-  height: 60px; /* increased from 50px */
+  height: 60px; 
   width: 100%;
   margin: 12px 0;
   position: relative;
@@ -193,8 +193,8 @@ body {
   width: 100%;
   outline: none;
   border: none;
-  padding: 0 35px; /* increased from 30px */
-  font-size: 18px; /* increased from 16px */
+  padding: 0 35px; 
+  font-size: 18px; 
   font-weight: 500;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
@@ -208,11 +208,11 @@ body {
 .form-content .input-box i {
   position: absolute;
   color: var(--saffron);
-  font-size: 18px; /* increased from 17px */
+  font-size: 18px; /
 }
 
 .forms .form-content .text {
-  font-size: 16px; /* increased from 14px */
+  font-size: 16px; 
   font-weight: 500;
   color: #333;
 }
@@ -235,7 +235,7 @@ body {
   color: #fff;
   background: var(--saffron);
   border-radius: 6px;
-  padding: 15px 0; /* more vertical padding */
+  padding: 15px 0; 
   cursor: pointer;
   transition: all 0.4s ease;
 }
@@ -274,7 +274,7 @@ body {
 .logo-img {
   max-width: 100%;
   height: auto;
-  width: 350px; /* You can adjust this value */
+  width: 350px; 
   transition: all 0.3s ease;
 }
 
