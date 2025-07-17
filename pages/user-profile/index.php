@@ -141,7 +141,11 @@ renderMainLayout(function () use ($role, $user, $userTransactions, $userListings
                                         <p><strong>₱<?= number_format((float)$item['price'], 2) ?></strong></p>
                                         <p>Stock: <?= (int)$item['stock'] ?></p>
                                         <p>Category: <?= htmlspecialchars($item['category']) ?></p>
-                                        <p><small>Listed on <?= date('F j, Y g:i A', strtotime($item['created_at'])) ?></small></p>
+                                        <p><small>Listed on <?= date('F j, Y', strtotime($item['created_at'])) ?></small></p>
+                                        <form action="/handlers/remove_item.handler.php" method="POST" onsubmit="return confirm('Are you sure you want to remove this item from your listings?');" style="margin-top: 0.5rem;">
+                                            <input type="hidden" name="item_id" value="<?= htmlspecialchars($item['id']) ?>">
+                                            <button type="submit" class="delete-btn">Delete</button>
+                                        </form>
                                     </div>
                                 <?php endforeach; ?>
                             </div>
