@@ -16,6 +16,6 @@ if (php_sapi_name() === 'cli-server') {
     }
 }
 
+ob_end_flush();
 require BASE_PATH . '/index.php';
 exit;
-ob_end_flush();
