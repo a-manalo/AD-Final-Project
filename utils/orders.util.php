@@ -49,3 +49,41 @@ function getItemsBySeller(string $sellerUsername): array {
 
     return $results;
 }
+
+function getSellerTransactions(string $sellerUsername): array {
+    $pdo = createPDO();
+
+    $stmt = $pdo->prepare("
+        SELECT 
+            t.id as transaction_id,
+            t.total_amount,
+            t.status as transaction_status,
+            t.created_at as transaction_date,
+            u.username as buyer_username,
+            u.email as buyer_email,
+            i.name as item_name,
+            ti.quantity,
+            ti.unit_price,
+            ti.subtotal,
+            p.payment_method,
+            p.payment_status,
+            p.meeting_date,
+            p.meeting_time,
+            p.contact_info,
+            p.location,
+            p.agreed_amount,
+            p.additional_notes
+        FROM transactions t
+        JOIN transaction_items ti ON t.id = ti.transaction_id
+        JOIN items i ON ti.item_id = i.id
+        JOIN users u ON t.user_id = u.id
+        LEFT JOIN payments p ON t.id = p.transaction_id
+        WHERE i.seller = :seller
+        ORDER BY t.created_at DESC
+    ");
+    $stmt->execute(['seller' => $sellerUsername]);
+    
+    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    return $results;
+}
