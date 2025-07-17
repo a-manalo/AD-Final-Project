@@ -7,6 +7,12 @@ if (php_sapi_name() === 'cli-server') {
     if (is_file($file)) {
         return false;
     }
+
+    if (is_dir($file) && is_file($file . '/index.php')) {
+        return false;
+    }
 }
 
-require BASE_PATH . '/index.php';
+http_response_code(404);
+require ERRORS_PATH . '/_404.error.php';
+exit;
