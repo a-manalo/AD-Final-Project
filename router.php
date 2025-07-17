@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require __DIR__ . '/bootstrap.php';
 
 if (php_sapi_name() === 'cli-server') {
@@ -8,11 +9,13 @@ if (php_sapi_name() === 'cli-server') {
         return false;
     }
 
-    if (is_dir($file) && is_file($file . '/index.php')) {
-        return false;
+    if (!is_file($file)) {
+        http_response_code(404);
+        require ERRORS_PATH . '/_404.error.php';
+        exit;
     }
 }
 
-http_response_code(404);
-require ERRORS_PATH . '/_404.error.php';
+require BASE_PATH . '/index.php';
 exit;
+ob_end_flush();
